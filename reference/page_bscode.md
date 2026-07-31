@@ -1,7 +1,7 @@
-# A VS Code-inspired activity bar page
+# A VS Code-inspired navigation page
 
-Creates a screen-filling bslib page whose navigation is displayed as a
-compact activity bar on the left or right.
+Creates a screen-filling bslib page whose navigation is displayed as
+either a compact activity bar or a wider sidebar with icons and labels.
 
 ## Usage
 
@@ -13,6 +13,8 @@ page_bscode(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
+  nav_mode = c("activity", "sidebar"),
+  nav_width = "240px",
   size = "md",
   fillable = TRUE,
   fillable_mobile = TRUE,
@@ -38,7 +40,7 @@ page_bscode(
 
 - title:
 
-  Window title and source of the default brand letter.
+  Window title and source of the default brand.
 
 - id:
 
@@ -51,11 +53,20 @@ page_bscode(
 
 - position:
 
-  Activity bar position: `"left"` or `"right"`.
+  Navigation position: `"left"` or `"right"`.
+
+- nav_mode:
+
+  Navigation presentation: `"activity"` for icons only or `"sidebar"`
+  for icons and labels.
+
+- nav_width:
+
+  Width of the navigation when `nav_mode = "sidebar"`.
 
 - size:
 
-  Activity bar size: `"sm"`, `"md"`, `"lg"`, or `"xl"`.
+  Navigation item size: `"sm"`, `"md"`, `"lg"`, or `"xl"`.
 
 - fillable:
 
@@ -67,7 +78,7 @@ page_bscode(
 
 - tooltip_placement:
 
-  Tooltip placement, `"auto"`, or `NULL` to disable.
+  Tooltip placement in activity mode, `"auto"`, or `NULL` to disable.
 
 - theme:
 
@@ -77,7 +88,8 @@ page_bscode(
 
 - brand:
 
-  Optional UI for the top of the activity bar.
+  Optional UI for the top of the navigation. By default, activity mode
+  uses the first letter of `title` and sidebar mode uses the full title.
 
 - lang:
 

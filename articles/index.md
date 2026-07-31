@@ -2,8 +2,7 @@
 
 ### Interactive examples
 
-Edit the R code and run each bscode application directly in the browser
-with Shinylive.
+Run each bscode application directly in the browser with Shinylive.
 
 - [Basic
   navigation](https://jbkunst.github.io/bscode/articles/basic-navigation.md):

@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>A Lightweight VS Code-Inspired Activity Bar for bslib • bscode</title>
+<title>A Lightweight VS Code-Inspired Navigation Shell for bslib • bscode</title>
 <script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="A Lightweight VS Code-Inspired Activity Bar for bslib">
-<meta name="description" content="Provides an opinionated, screen-filling page layout for Shiny applications. It reuses bslib navigation components while presenting them as a compact VS Code-inspired activity bar on the left or right.">
-<meta property="og:description" content="Provides an opinionated, screen-filling page layout for Shiny applications. It reuses bslib navigation components while presenting them as a compact VS Code-inspired activity bar on the left or right.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="A Lightweight VS Code-Inspired Navigation Shell for bslib">
+<meta name="description" content="Provides an opinionated, screen-filling page layout for Shiny applications. It reuses bslib navigation components while presenting them as either a compact activity bar or a wider icon-and-label sidebar on the left or right.">
+<meta property="og:description" content="Provides an opinionated, screen-filling page layout for Shiny applications. It reuses bslib navigation components while presenting them as either a compact activity bar or a wider icon-and-label sidebar on the left or right.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">bscode</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9001</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +42,7 @@
     <li><a class="dropdown-item" href="articles/sql-console.html">SQL console</a></li>
     <li><a class="dropdown-item" href="articles/maps.html">Full-screen maps</a></li>
     <li><a class="dropdown-item" href="articles/themes-and-icons.html">Themes and icons</a></li>
+    <li><a class="dropdown-item" href="articles/sidebar-navigation.html">Sidebar navigation</a></li>
   </ul>
 </li>
       </ul>
@@ -69,7 +70,7 @@
 <div class="page-header"><h1 id="bscode">bscode<a class="anchor" aria-label="anchor" href="#bscode"></a>
 </h1></div>
 <blockquote>
-<p>A lightweight VS Code-inspired activity bar for bslib.</p>
+<p>A lightweight VS Code-inspired navigation shell for bslib.</p>
 <p><strong><code>bscode = bslib + VS Code</code></strong></p>
 </blockquote>
 <p><code>bscode</code> provides an opinionated, screen-filling page layout for Shiny. It is a compact alternative to <code><a href="https://rstudio.github.io/bslib/reference/page_navbar.html" class="external-link">bslib::page_navbar()</a></code> and <code><a href="https://rstudio.github.io/bslib/reference/page_sidebar.html" class="external-link">bslib::page_sidebar()</a></code> that keeps the familiar <code>nav_panel()</code>, <code>nav_spacer()</code>, and <code>nav_select()</code> workflow.</p>
@@ -96,22 +97,47 @@
 <span><span class="op">)</span></span></code></pre></div>
 <p>Icons are strongly recommended. When a panel has no icon, <code>bscode</code> falls back to the first letter of its title and emits one recommendation per R session.</p>
 <div class="section level2">
+<h2 id="navigation-modes">Navigation modes<a class="anchor" aria-label="anchor" href="#navigation-modes"></a>
+</h2>
+<p>The default activity bar displays icons only:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">bscode</span><span class="fu">::</span><span class="fu"><a href="reference/page_bscode.html">page_bscode</a></span><span class="op">(</span></span>
+<span>  nav_mode <span class="op">=</span> <span class="st">"activity"</span>,</span>
+<span>  size <span class="op">=</span> <span class="st">"md"</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Sidebar mode keeps the same navigation API but displays icons and labels together:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">bscode</span><span class="fu">::</span><span class="fu"><a href="reference/page_bscode.html">page_bscode</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"My Dashboard"</span>,</span>
+<span>  nav_mode <span class="op">=</span> <span class="st">"sidebar"</span>,</span>
+<span>  nav_width <span class="op">=</span> <span class="st">"230px"</span>,</span>
+<span>  brand <span class="op">=</span> <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>    <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"chart-column"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">span</a></span><span class="op">(</span><span class="st">"My Dashboard"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="defaults">Defaults<a class="anchor" aria-label="anchor" href="#defaults"></a>
 </h2>
 <ul>
 <li>VS Code blue (<code>#007ACC</code>) as the Bootstrap primary color.</li>
 <li>Screen-filling panels.</li>
-<li>Activity bar on the left; <code>position = "right"</code> is also supported.</li>
-<li>Tooltips on the side opposite the activity bar.</li>
+<li>Navigation on the left; <code>position = "right"</code> is also supported.</li>
+<li>Activity mode uses tooltips on the side opposite the navigation.</li>
 <li>
 <code>tooltip_placement = NULL</code> disables tooltips.</li>
+<li>
+<code>size</code> accepts <code>"sm"</code>, <code>"md"</code>, <code>"lg"</code>, and <code>"xl"</code>.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <p>After installing the package, run an example with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html" class="external-link">runApp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples/01-basic"</span>, package <span class="op">=</span> <span class="st">"bscode"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Available examples:</p>
 <ul>
@@ -122,9 +148,11 @@
 <li>
 <code>03-sql-console</code>: a VS Code-like SQL editor and console backed by SQLite.</li>
 <li>
-<code>04-full-map</code>: full-screen MapLibre and Leaflet panels that test htmlwidget resizing when navigation changes.</li>
+<code>04-full-map</code>: independent full-screen Leaflet panels that test htmlwidget resizing when navigation changes.</li>
 <li>
 <code>05-themes-icons</code>: right-side navigation, custom themes, mixed icon packages, and letter fallback.</li>
+<li>
+<code>06-sidebar</code>: a classic dashboard-style sidebar using the same <code>nav_panel()</code> workflow.</li>
 </ul>
 </div>
 <div class="section level2">
