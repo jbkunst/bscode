@@ -38,3 +38,13 @@ samp {
 .navbar .nav-link.active {
   color: #ffffff;
 }
+
+.bscode-live-frame {
+  display: block;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.375rem;
+  background: #ffffff;
+}
