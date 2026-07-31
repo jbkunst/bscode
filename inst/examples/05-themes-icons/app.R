@@ -13,8 +13,7 @@ ui <- page_bscode(
   position = "right",
   theme = bs_theme(
     primary = "#6F42C1",
-    secondary = "#20C997",
-    base_font = font_google("IBM Plex Sans")
+    secondary = "#20C997"
   ),
 
   nav_panel(

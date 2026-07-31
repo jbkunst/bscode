@@ -15,6 +15,11 @@
     return text || link.textContent.trim() || link.dataset.value || "Panel";
   }
 
+  function containsIcon(element) {
+    return element.matches("svg, i, img, .bscode-letter-icon") ||
+      Boolean(element.querySelector("svg, i, img, .bscode-letter-icon"));
+  }
+
   function hideLabel(link) {
     Array.from(link.childNodes).forEach(function (node) {
       if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
@@ -26,7 +31,7 @@
     });
 
     Array.from(link.children).forEach(function (child) {
-      if (!child.matches("svg, i, img, .bscode-letter-icon")) {
+      if (!containsIcon(child)) {
         child.classList.add("bscode-nav-label", "visually-hidden");
       }
     });

@@ -7,10 +7,6 @@ if (!requireNamespace("DBI", quietly = TRUE) ||
   stop("This example requires the DBI and RSQLite packages.")
 }
 
-con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
-DBI::dbWriteTable(con, "cars", cbind(model = rownames(mtcars), mtcars))
-DBI::dbWriteTable(con, "flowers", iris)
-
 sql_default <- paste(
   "SELECT model, mpg, cyl, wt",
   "FROM cars",
@@ -39,7 +35,7 @@ ui <- page_bscode(
         title = "Explorer",
         width = 240,
         tags$strong("SQLite tables"),
-        tags$ul(lapply(DBI::dbListTables(con), tags$li)),
+        tags$ul(tags$li("cars"), tags$li("flowers")),
         hr(),
         actionButton("run", "Run query", icon = icon("play"), class = "btn-primary w-100"),
         p(class = "small text-body-secondary mt-2", "Ctrl/Cmd + Enter also submits the editor value.")
@@ -63,7 +59,10 @@ ui <- page_bscode(
         ),
         card(
           card_header(textOutput("console_title", inline = TRUE)),
-          card_body(tableOutput("result"), fillable = TRUE)
+          card_body(
+            div(style = "height:100%; overflow:auto;", tableOutput("result")),
+            fillable = TRUE
+          )
         )
       )
     )
@@ -85,6 +84,10 @@ ui <- page_bscode(
 )
 
 server <- function(input, output, session) {
+  con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+  DBI::dbWriteTable(con, "cars", cbind(model = rownames(mtcars), mtcars))
+  DBI::dbWriteTable(con, "flowers", iris)
+
   result <- reactiveVal(DBI::dbGetQuery(con, sql_default))
   status <- reactiveVal("Ready")
 
