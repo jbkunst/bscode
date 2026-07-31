@@ -5,7 +5,7 @@ $vscode-border: #d4d4d4;
 
 :root {
   --bscode-ui-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --bscode-code-font: "Cascadia Mono", "Cascadia Code", Consolas, "SFMono-Regular", "Liberation Mono", monospace;
+  --bscode-code-font: Consolas, "SFMono-Regular", "Liberation Mono", monospace;
 }
 
 body,
@@ -27,16 +27,21 @@ samp,
 
 main pre code,
 main .sourceCode {
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.9rem;
+  line-height: 1.52;
 }
 
-main pre code a,
-main .sourceCode a,
-main .sourceCode a:any-link {
+pre.downlit a,
+pre.sourceCode a,
+.sourceCode a,
+.sourceCode a:any-link,
+.downlit a,
+.downlit a:any-link {
   border-bottom: 0 !important;
+  background-image: none !important;
   box-shadow: none !important;
   text-decoration: none !important;
+  text-decoration-line: none !important;
 }
 
 .navbar {
@@ -78,14 +83,38 @@ a:hover {
 }
 
 main pre,
-.sourceCode {
+.sourceCode,
+.bscode-example-source {
   border: 1px solid $vscode-border;
   border-radius: 0.25rem;
   background: #ffffff;
 }
 
+.bscode-example-source {
+  max-height: 44rem;
+  overflow: auto;
+  padding: 1rem;
+  white-space: pre;
+}
+
+.bscode-example-source code {
+  color: inherit;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.bscode-live-frame {
+  display: block;
+  width: 100%;
+  border: 1px solid $vscode-border;
+  border-radius: 0.35rem;
+  background: #ffffff;
+}
+
 [data-bs-theme="dark"] main pre,
-[data-bs-theme="dark"] .sourceCode {
+[data-bs-theme="dark"] .sourceCode,
+[data-bs-theme="dark"] .bscode-example-source {
   border-color: #3c3c3c;
   background: #1e1e1e;
 }
@@ -103,9 +132,4 @@ main pre,
 
 .pkgdown-sidebar {
   border-right-color: $vscode-border;
-}
-
-.shinylive-wrapper,
-.shinylive-wrapper iframe {
-  width: 100%;
 }
