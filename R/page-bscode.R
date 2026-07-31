@@ -164,7 +164,7 @@ page_bscode <- function(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
-  size = c("sm", "md", "lg", "xl"),
+  size = "md",
   fillable = TRUE,
   fillable_mobile = TRUE,
   tooltip_placement = "auto",
@@ -173,7 +173,7 @@ page_bscode <- function(
   lang = NULL
 ) {
   position <- match.arg(position)
-  size <- match.arg(size)
+  size <- match.arg(size, c("sm", "md", "lg", "xl"))
 
   if (!is.null(tooltip_placement)) {
     tooltip_placement <- match.arg(
