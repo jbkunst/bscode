@@ -1,6 +1,5 @@
 $vscode-blue: #007acc;
 $vscode-blue-dark: #0065a9;
-$vscode-workbench: #252526;
 $vscode-editor: #f3f3f3;
 $vscode-border: #d4d4d4;
 
@@ -25,22 +24,32 @@ samp,
 }
 
 .navbar {
-  border-bottom: 1px solid #3c3c3c;
-  box-shadow: none;
+  border-bottom: 1px solid $vscode-blue-dark;
+  background: $vscode-blue;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-brand {
+  color: #ffffff;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
 
 .navbar .nav-link {
-  color: #cccccc;
+  border-radius: 0.2rem;
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-link.active {
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.navbar .navbar-toggler,
+.navbar .navbar-toggler-icon,
+.navbar .bi {
   color: #ffffff;
 }
 
@@ -78,4 +87,9 @@ main pre,
 
 .pkgdown-sidebar {
   border-right-color: $vscode-border;
+}
+
+.shinylive-wrapper,
+.shinylive-wrapper iframe {
+  width: 100%;
 }
