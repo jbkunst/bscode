@@ -1,6 +1,6 @@
 # bscode
 
-> A lightweight VS Code-inspired activity bar for bslib.
+> A lightweight VS Code-inspired navigation shell for bslib.
 >
 > **`bscode = bslib + VS Code`**
 
@@ -31,13 +31,41 @@ bscode::page_bscode(
 
 Icons are strongly recommended. When a panel has no icon, `bscode` falls back to the first letter of its title and emits one recommendation per R session.
 
+## Navigation modes
+
+The default activity bar displays icons only:
+
+```r
+bscode::page_bscode(
+  nav_mode = "activity",
+  size = "md",
+  ...
+)
+```
+
+Sidebar mode keeps the same navigation API but displays icons and labels together:
+
+```r
+bscode::page_bscode(
+  title = "My Dashboard",
+  nav_mode = "sidebar",
+  nav_width = "230px",
+  brand = htmltools::tagList(
+    shiny::icon("chart-column"),
+    htmltools::span("My Dashboard")
+  ),
+  ...
+)
+```
+
 ## Defaults
 
 - VS Code blue (`#007ACC`) as the Bootstrap primary color.
 - Screen-filling panels.
-- Activity bar on the left; `position = "right"` is also supported.
-- Tooltips on the side opposite the activity bar.
+- Navigation on the left; `position = "right"` is also supported.
+- Activity mode uses tooltips on the side opposite the navigation.
 - `tooltip_placement = NULL` disables tooltips.
+- `size` accepts `"sm"`, `"md"`, `"lg"`, and `"xl"`.
 
 ## Examples
 
@@ -52,8 +80,9 @@ Available examples:
 - `01-basic`: familiar `bslib` navigation and `nav_select()`.
 - `02-cards`: cards, value boxes, Plotly, Leaflet, and Reactable.
 - `03-sql-console`: a VS Code-like SQL editor and console backed by SQLite.
-- `04-full-map`: full-screen MapLibre and Leaflet panels that test htmlwidget resizing when navigation changes.
+- `04-full-map`: independent full-screen Leaflet panels that test htmlwidget resizing when navigation changes.
 - `05-themes-icons`: right-side navigation, custom themes, mixed icon packages, and letter fallback.
+- `06-sidebar`: a classic dashboard-style sidebar using the same `nav_panel()` workflow.
 
 ## Development
 
