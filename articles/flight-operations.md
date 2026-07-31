@@ -149,7 +149,23 @@ ui <- page_bscode(
 )
 
 server <- function(input, output, session) {
+  plotly_stage <- reactiveVal(0L)
+
+  session$onFlushed(
+    function() {
+      plotly_stage(1L)
+
+      later::later(
+        function() plotly_stage(2L),
+        delay = 1.2
+      )
+    },
+    once = TRUE
+  )
+
   output$globe <- renderPlotly({
+    req(plotly_stage() >= 1L)
+
     plot_geo() |>
       add_lines(
         data = route_lines,
@@ -241,6 +257,8 @@ server <- function(input, output, session) {
   })
 
   output$punctuality <- renderPlotly({
+    req(plotly_stage() >= 2L)
+
     plot_ly(
       routes,
       x = ~code,

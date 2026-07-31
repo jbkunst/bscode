@@ -231,7 +231,23 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">plotly_stage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="fl">0L</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">session</span><span class="op">$</span><span class="fu">onFlushed</span><span class="op">(</span></span>
+<span>    <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="fu">plotly_stage</span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span></span>
+<span></span>
+<span>      <span class="fu">later</span><span class="fu">::</span><span class="fu"><a href="https://later.r-lib.org/reference/later.html" class="external-link">later</a></span><span class="op">(</span></span>
+<span>        <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu">plotly_stage</span><span class="op">(</span><span class="fl">2L</span><span class="op">)</span>,</span>
+<span>        delay <span class="op">=</span> <span class="fl">1.2</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">}</span>,</span>
+<span>    once <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">globe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plotly-shiny.html" class="external-link">renderPlotly</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html" class="external-link">req</a></span><span class="op">(</span><span class="fu">plotly_stage</span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">1L</span><span class="op">)</span></span>
+<span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_geo.html" class="external-link">plot_geo</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/add_trace.html" class="external-link">add_lines</a></span><span class="op">(</span></span>
 <span>        data <span class="op">=</span> <span class="va">route_lines</span>,</span>
@@ -323,6 +339,8 @@
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">punctuality</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plotly-shiny.html" class="external-link">renderPlotly</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html" class="external-link">req</a></span><span class="op">(</span><span class="fu">plotly_stage</span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2L</span><span class="op">)</span></span>
+<span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html" class="external-link">plot_ly</a></span><span class="op">(</span></span>
 <span>      <span class="va">routes</span>,</span>
 <span>      x <span class="op">=</span> <span class="op">~</span><span class="va">code</span>,</span>
