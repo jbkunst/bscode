@@ -110,7 +110,15 @@ body {
   border-right: 3px solid transparent;
 }
 
-.bscode-nav .nav-link svg,
+.bscode-nav .nav-link svg {
+  width: 1.35rem !important;
+  height: 1.35rem !important;
+  max-width: 1.35rem !important;
+  max-height: 1.35rem !important;
+  font-size: 1.35rem !important;
+  line-height: 1;
+}
+
 .bscode-nav .nav-link i,
 .bscode-nav .nav-link img {
   width: 1.35rem;
