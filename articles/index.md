@@ -13,12 +13,12 @@ with Shinylive.
 - [Flight operations
   dashboard](https://jbkunst.github.io/bscode/articles/flight-operations.md):
 
-  Combine bscode with bslib cards, value boxes, Plotly, Leaflet, and
-  Reactable.
+  Combine bscode with bslib cards, value boxes, Shiny plots, Leaflet,
+  and Reactable.
 
 - [Full-screen maps](https://jbkunst.github.io/bscode/articles/maps.md):
 
-  Run MapLibre and Leaflet in separate navigation panels and verify
+  Run independent Leaflet maps in separate navigation panels and verify
   widget resizing.
 
 - [SQL

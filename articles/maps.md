@@ -1,12 +1,12 @@
 # Full-screen maps
 
-MapLibre and Leaflet share the same bscode shell without sharing a
-panel. Switching sections tests whether both map libraries recover their
-full dimensions correctly.
+Two independent maps share the same bscode shell without sharing a
+panel. Switching sections tests whether both widgets recover their full
+dimensions correctly.
 
 This example checks:
 
-- Two map libraries coexisting in one Shiny application.
+- Two independent Leaflet widgets in one Shiny application.
 - Full-viewport htmlwidgets with floating controls.
 - Resize events when the selected navigation panel changes.
 
@@ -24,30 +24,27 @@ library(shiny)
 library(bslib)
 library(bscode)
 
-required_packages <- c("leaflet", "mapgl")
-missing_packages <- required_packages[
-  !vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)
-]
-
-if (length(missing_packages)) {
-  stop(
-    "This example requires: ",
-    paste(missing_packages, collapse = ", "),
-    "."
-  )
+if (!requireNamespace("leaflet", quietly = TRUE)) {
+  stop("This example requires: leaflet.")
 }
+
+places <- data.frame(
+  name = c("Santiago", "Valparaiso", "Rancagua", "Concepcion"),
+  lng = c(-70.6483, -71.6127, -70.7406, -73.0498),
+  lat = c(-33.4569, -33.0472, -34.1708, -36.8270)
+)
 
 ui <- page_bscode(
   title = "Maps",
   id = "main_nav",
 
   nav_panel(
-    "MapLibre",
-    value = "maplibre",
-    icon = icon("map"),
+    "Network",
+    value = "network",
+    icon = icon("route"),
     div(
       style = "position:relative; width:100%; height:100%; min-height:0;",
-      mapgl::maplibreOutput("maplibre_map", width = "100%", height = "100%"),
+      leaflet::leafletOutput("network_map", width = "100%", height = "100%"),
       absolutePanel(
         top = 16,
         left = 16,
@@ -55,12 +52,12 @@ ui <- page_bscode(
         class = "card shadow",
         div(
           class = "card-body",
-          h5("MapLibre", class = "card-title"),
-          p("A full-screen WebGL map inside a fillable navigation panel."),
+          h5("Network map", class = "card-title"),
+          p("A full-screen Leaflet map inside a fillable navigation panel."),
           actionButton(
-            "open_leaflet",
-            "Open Leaflet",
-            icon = icon("location-dot"),
+            "open_terrain",
+            "Open terrain",
+            icon = icon("mountain-sun"),
             class = "btn-primary btn-sm"
           )
         )
@@ -69,12 +66,12 @@ ui <- page_bscode(
   ),
 
   nav_panel(
-    "Leaflet",
-    value = "leaflet",
-    icon = icon("location-dot"),
+    "Terrain",
+    value = "terrain",
+    icon = icon("mountain-sun"),
     div(
       style = "position:relative; width:100%; height:100%; min-height:0;",
-      leaflet::leafletOutput("leaflet_map", width = "100%", height = "100%"),
+      leaflet::leafletOutput("terrain_map", width = "100%", height = "100%"),
       absolutePanel(
         top = 16,
         left = 16,
@@ -82,12 +79,12 @@ ui <- page_bscode(
         class = "card shadow",
         div(
           class = "card-body",
-          h5("Leaflet", class = "card-title"),
-          p("A second map library using the same full-screen shell."),
+          h5("Terrain map", class = "card-title"),
+          p("A second independent map using the same full-screen shell."),
           actionButton(
-            "open_maplibre",
-            "Open MapLibre",
-            icon = icon("map"),
+            "open_network",
+            "Open network",
+            icon = icon("route"),
             class = "btn-primary btn-sm"
           )
         )
@@ -103,41 +100,64 @@ ui <- page_bscode(
     icon = icon("circle-info"),
     div(
       class = "p-4",
-      h2("Two map libraries, one activity bar"),
+      h2("Two maps, one activity bar"),
       p(
-        "MapLibre and Leaflet live in separate nav panels. Switching panels ",
-        "tests that each htmlwidget receives the resize event and fills the ",
-        "available viewport without interfering with the other."
+        "The maps live in separate navigation panels. Switching panels tests ",
+        "that each htmlwidget receives a resize event and fills the available ",
+        "viewport without interfering with the other."
       ),
-      actionButton("back_maplibre", "Back to MapLibre", icon = icon("arrow-left"))
+      actionButton("back_network", "Back to network", icon = icon("arrow-left"))
     )
   )
 )
 
 server <- function(input, output, session) {
-  output$maplibre_map <- mapgl::renderMaplibre({
-    mapgl::maplibre(
-      center = c(-70.6483, -33.4569),
-      zoom = 10,
-      projection = "mercator"
+  output$network_map <- leaflet::renderLeaflet({
+    map <- leaflet::leaflet(places) |>
+      leaflet::addProviderTiles(leaflet::providers$CartoDB.Positron) |>
+      leaflet::addCircleMarkers(
+        lng = ~lng,
+        lat = ~lat,
+        radius = 7,
+        stroke = TRUE,
+        fillOpacity = 0.85,
+        label = ~name
+      )
+
+    for (index in seq.int(2, nrow(places))) {
+      map <- leaflet::addPolylines(
+        map,
+        lng = c(places$lng[1], places$lng[index]),
+        lat = c(places$lat[1], places$lat[index]),
+        weight = 2,
+        opacity = 0.75
+      )
+    }
+
+    leaflet::fitBounds(
+      map,
+      lng1 = min(places$lng) - 0.5,
+      lat1 = min(places$lat) - 0.5,
+      lng2 = max(places$lng) + 0.5,
+      lat2 = max(places$lat) + 0.5
     )
   })
 
-  output$leaflet_map <- leaflet::renderLeaflet({
-    leaflet::leaflet() |>
-      leaflet::addProviderTiles(leaflet::providers$CartoDB.Positron) |>
-      leaflet::setView(lng = -70.6483, lat = -33.4569, zoom = 11) |>
-      leaflet::addCircleMarkers(
-        lng = -70.6483,
-        lat = -33.4569,
-        radius = 8,
-        label = "Santiago"
+  output$terrain_map <- leaflet::renderLeaflet({
+    leaflet::leaflet(places) |>
+      leaflet::addProviderTiles(leaflet::providers$OpenTopoMap) |>
+      leaflet::addMarkers(lng = ~lng, lat = ~lat, label = ~name) |>
+      leaflet::fitBounds(
+        lng1 = min(places$lng) - 0.5,
+        lat1 = min(places$lat) - 0.5,
+        lng2 = max(places$lng) + 0.5,
+        lat2 = max(places$lat) + 0.5
       )
   })
 
-  observeEvent(input$open_leaflet, nav_select("main_nav", "leaflet"))
-  observeEvent(input$open_maplibre, nav_select("main_nav", "maplibre"))
-  observeEvent(input$back_maplibre, nav_select("main_nav", "maplibre"))
+  observeEvent(input$open_terrain, nav_select("main_nav", "terrain"))
+  observeEvent(input$open_network, nav_select("main_nav", "network"))
+  observeEvent(input$back_network, nav_select("main_nav", "network"))
 }
 
 shinyApp(ui, server)
