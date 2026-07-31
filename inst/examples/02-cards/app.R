@@ -100,7 +100,7 @@ ui <- page_bscode(
       card(
         full_screen = TRUE,
         card_header("On-time performance"),
-        plotlyOutput("punctuality", height = "100%")
+        plotOutput("punctuality", height = "100%")
       )
     )
   ),
@@ -119,31 +119,25 @@ ui <- page_bscode(
         "themes and htmlwidgets remain standard bslib and Shiny components."
       ),
       tags$ul(
-        tags$li("Plotly renders the route globe and punctuality chart."),
+        tags$li("Plotly renders the interactive route globe."),
         tags$li("Leaflet renders the interactive airport map."),
-        tags$li("Reactable renders the searchable departures table.")
+        tags$li("Reactable renders the searchable departures table."),
+        tags$li("Base R renders the punctuality chart.")
       )
     )
   )
 )
 
 server <- function(input, output, session) {
-  plotly_stage <- reactiveVal(0L)
+  plotly_ready <- reactiveVal(FALSE)
 
   session$onFlushed(
-    function() {
-      plotly_stage(1L)
-
-      later::later(
-        function() plotly_stage(2L),
-        delay = 1.2
-      )
-    },
+    function() plotly_ready(TRUE),
     once = TRUE
   )
 
   output$globe <- renderPlotly({
-    req(plotly_stage() >= 1L)
+    req(plotly_ready())
 
     plot_geo() |>
       add_lines(
@@ -235,23 +229,20 @@ server <- function(input, output, session) {
     )
   })
 
-  output$punctuality <- renderPlotly({
-    req(plotly_stage() >= 2L)
+  output$punctuality <- renderPlot({
+    barplot(
+      height = routes$on_time * 100,
+      names.arg = routes$code,
+      ylim = c(0, 100),
+      border = NA,
+      col = "#007ACC",
+      ylab = "On time (%)",
+      xlab = "",
+      las = 1
+    )
 
-    plot_ly(
-      routes,
-      x = ~code,
-      y = ~on_time,
-      text = ~paste0(city, ": ", round(on_time * 100), "%"),
-      hoverinfo = "text",
-      type = "bar"
-    ) |>
-      layout(
-        xaxis = list(title = ""),
-        yaxis = list(title = "", tickformat = ".0%", range = c(0, 1)),
-        margin = list(l = 45, r = 10, b = 35, t = 10)
-      )
-  })
+    abline(h = 80, lty = 2, col = "#62676C")
+  }, res = 96)
 }
 
 shinyApp(ui, server)
