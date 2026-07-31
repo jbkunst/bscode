@@ -90,6 +90,11 @@ body {
   box-shadow: -1px 0 0 rgba(15, 23, 42, 0.12);
 }
 
+.bscode-nav-mode-sidebar .bscode-activity-bar {
+  flex-basis: var(--bscode-nav-width);
+  width: var(--bscode-nav-width);
+}
+
 .bscode-brand {
   display: grid;
   flex: 0 0 var(--bscode-bar-width);
@@ -105,9 +110,35 @@ body {
 }
 
 .bscode-brand > svg,
+.bscode-brand > i,
 .bscode-brand > img {
   max-width: var(--bscode-brand-icon-size);
   max-height: var(--bscode-brand-icon-size);
+}
+
+.bscode-nav-mode-sidebar .bscode-brand {
+  display: flex;
+  flex-basis: var(--bscode-item-height);
+  justify-content: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  height: var(--bscode-item-height);
+  padding: 0 1rem;
+  overflow: hidden;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.bscode-nav-mode-sidebar .bscode-brand > svg,
+.bscode-nav-mode-sidebar .bscode-brand > i,
+.bscode-nav-mode-sidebar .bscode-brand > img {
+  flex: 0 0 auto;
+}
+
+.bscode-nav-mode-sidebar .bscode-brand > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bscode-nav {
@@ -143,6 +174,23 @@ body {
   font-size: 0;
 }
 
+.bscode-nav-mode-sidebar .bscode-nav .nav-link {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.bscode-nav-mode-sidebar .bscode-nav-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .bscode-position-left .bscode-nav .nav-link {
   border-left: 3px solid transparent;
 }
@@ -173,6 +221,10 @@ body {
 .bscode-nav .nav-link > :not(.bscode-nav-label) {
   display: grid;
   place-items: center;
+}
+
+.bscode-nav-mode-sidebar .bscode-nav .nav-link > :not(.bscode-nav-label) {
+  flex: 0 0 auto;
 }
 
 .bscode-nav .nav-link:hover,
@@ -336,5 +388,10 @@ body {
     --bscode-brand-font-size: 1.3rem;
     --bscode-letter-size: 1.75rem;
     --bscode-letter-font-size: 0.95rem;
+  }
+
+  .bscode-nav-mode-sidebar .bscode-activity-bar {
+    flex-basis: min(var(--bscode-nav-width), 75vw);
+    width: min(var(--bscode-nav-width), 75vw);
   }
 }
