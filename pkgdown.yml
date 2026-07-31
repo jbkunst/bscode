@@ -1,8 +1,13 @@
 pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2026-07-31T05:43Z
+articles:
+  articles/basic-navigation: basic-navigation.html
+  articles/flight-operations: flight-operations.html
+  articles/maps: maps.html
+  articles/sql-console: sql-console.html
+  articles/themes-and-icons: themes-and-icons.html
+last_built: 2026-07-31T06:53Z
 urls:
   reference: https://jbkunst.github.io/bscode/reference
   article: https://jbkunst.github.io/bscode/articles

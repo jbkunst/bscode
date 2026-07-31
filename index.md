@@ -1,6 +1,8 @@
 # bscode
 
 > A lightweight VS Code-inspired activity bar for bslib.
+>
+> **`bscode = bslib + VS Code`**
 
 `bscode` provides an opinionated, screen-filling page layout for Shiny.
 It is a compact alternative to
