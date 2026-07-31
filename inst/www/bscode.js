@@ -52,7 +52,7 @@
     link.prepend(icon);
   }
 
-  function initLink(shell, link) {
+  function initLink(link) {
     if (link.dataset.bscodeReady === "true") return;
 
     const label = directLabel(link);
@@ -60,30 +60,40 @@
     hideLabel(link);
 
     link.setAttribute("aria-label", label);
+    link.setAttribute("data-bs-title", label);
     link.removeAttribute("title");
-
-    const requested = shell.dataset.bscodeTooltipPlacement || "auto";
-    if (requested !== "none" && window.bootstrap && bootstrap.Tooltip) {
-      const placement = requested === "auto"
-        ? oppositePlacement(shell.dataset.bscodePosition || "left")
-        : requested;
-
-      bootstrap.Tooltip.getOrCreateInstance(link, {
-        title: label,
-        placement: placement,
-        trigger: "hover focus",
-        container: "body",
-        customClass: "bscode-tooltip-light"
-      });
-    }
-
     link.dataset.bscodeReady = "true";
   }
 
-  function initShell(shell) {
-    shell.querySelectorAll(".bscode-nav .nav-link").forEach(function (link) {
-      initLink(shell, link);
+  function initTooltip(shell) {
+    if (shell.dataset.bscodeTooltipReady === "true") return;
+
+    const requested = shell.dataset.bscodeTooltipPlacement || "auto";
+    if (requested === "none") {
+      shell.dataset.bscodeTooltipReady = "true";
+      return;
+    }
+
+    if (!window.bootstrap || !bootstrap.Tooltip) return;
+
+    const placement = requested === "auto"
+      ? oppositePlacement(shell.dataset.bscodePosition || "left")
+      : requested;
+
+    bootstrap.Tooltip.getOrCreateInstance(shell, {
+      selector: ".bscode-nav .nav-link",
+      placement: placement,
+      trigger: "hover focus",
+      container: "body",
+      customClass: "bscode-tooltip-light"
     });
+
+    shell.dataset.bscodeTooltipReady = "true";
+  }
+
+  function initShell(shell) {
+    shell.querySelectorAll(".bscode-nav .nav-link").forEach(initLink);
+    initTooltip(shell);
   }
 
   function initAll() {
