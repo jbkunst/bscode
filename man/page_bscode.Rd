@@ -4,6 +4,7 @@
 \usage{
 page_bscode(
   ...,
+  header = NULL,
   title = NULL,
   id = NULL,
   selected = NULL,
@@ -18,6 +19,7 @@ page_bscode(
 }
 \arguments{
 \item{...}{Navigation items created by \code{bslib::nav_panel()} or \code{bslib::nav_spacer()}.}
+\item{header}{Optional UI displayed above every navigation panel.}
 \item{title}{Window title and source of the default brand letter.}
 \item{id}{Navigation input ID, compatible with \code{bslib::nav_select()}.}
 \item{selected}{Value of the initially selected panel.}
