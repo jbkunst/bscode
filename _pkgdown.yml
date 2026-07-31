@@ -11,7 +11,7 @@ template:
     fg: "#1E1E1E"
     primary: "#007ACC"
     secondary: "#6A737D"
-    navbar-bg: "#252526"
+    navbar-bg: "#007ACC"
     border-color: "#D4D4D4"
 
 navbar:
@@ -23,16 +23,29 @@ navbar:
     examples:
       text: Examples
       menu:
+        - text: All examples
+          href: articles/index.html
+        - text: "-----"
         - text: Basic navigation
-          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/01-basic/app.R
+          href: articles/basic-navigation.html
         - text: Flight operations
-          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/02-cards/app.R
+          href: articles/flight-operations.html
         - text: SQL console
-          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/03-sql-console/app.R
-        - text: Full-screen map
-          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/04-full-map/app.R
+          href: articles/sql-console.html
+        - text: Full-screen maps
+          href: articles/maps.html
         - text: Themes and icons
-          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/05-themes-icons/app.R
+          href: articles/themes-and-icons.html
+
+articles:
+  - title: Interactive examples
+    desc: Edit the R code and run each bscode application directly in the browser with Shinylive.
+    contents:
+      - basic-navigation
+      - flight-operations
+      - sql-console
+      - maps
+      - themes-and-icons
 
 reference:
   - title: Page layout
