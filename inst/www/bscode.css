@@ -110,12 +110,20 @@ body {
   border-right: 3px solid transparent;
 }
 
-.bscode-nav .nav-link > svg,
-.bscode-nav .nav-link > i,
-.bscode-nav .nav-link > img {
+.bscode-nav .nav-link svg,
+.bscode-nav .nav-link i,
+.bscode-nav .nav-link img {
   width: 1.35rem;
   height: 1.35rem;
+  max-width: 1.35rem;
+  max-height: 1.35rem;
   font-size: 1.35rem;
+  line-height: 1;
+}
+
+.bscode-nav .nav-link > :not(.bscode-nav-label) {
+  display: grid;
+  place-items: center;
 }
 
 .bscode-nav .nav-link:hover,
