@@ -41,11 +41,11 @@ articles:
   - title: Interactive examples
     desc: Edit the R code and run each bscode application directly in the browser with Shinylive.
     contents:
-      - basic-navigation
-      - flight-operations
-      - sql-console
-      - maps
-      - themes-and-icons
+      - "basic-navigation"
+      - "flight-operations"
+      - "sql-console"
+      - "maps"
+      - "themes-and-icons"
 
 reference:
   - title: Page layout
