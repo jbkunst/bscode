@@ -110,8 +110,8 @@ ui <- page_bscode(
       icon_card(
         "Phosphor",
         "phosphoricons::ph()",
-        phosphoricons::ph("circles-three-plus", weight = "duotone", height = "3rem"),
-        "Phosphor offers several weights, including expressive duotone icons."
+        phosphoricons::ph("circles-three-plus", weight = "fill", height = "3rem"),
+        "Phosphor offers several weights from thin outlines to filled icons."
       )
     )
   ),
