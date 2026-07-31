@@ -3,8 +3,9 @@ library(bslib)
 library(bscode)
 
 if (!requireNamespace("DBI", quietly = TRUE) ||
-    !requireNamespace("RSQLite", quietly = TRUE)) {
-  stop("This example requires the DBI and RSQLite packages.")
+    !requireNamespace("RSQLite", quietly = TRUE) ||
+    !requireNamespace("tibble", quietly = TRUE)) {
+  stop("This example requires the DBI, RSQLite, and tibble packages.")
 }
 
 sql_default <- paste(
@@ -20,8 +21,8 @@ ui <- page_bscode(
   id = "main_nav",
   theme = bs_theme(
     primary = "#007ACC",
-    bg = "#1E1E1E",
-    fg = "#D4D4D4"
+    bg = "#FFFFFF",
+    fg = "#1E1E1E"
   ),
 
   nav_panel(
@@ -37,8 +38,16 @@ ui <- page_bscode(
         tags$strong("SQLite tables"),
         tags$ul(tags$li("cars"), tags$li("flowers")),
         hr(),
-        actionButton("run", "Run query", icon = icon("play"), class = "btn-primary w-100"),
-        p(class = "small text-body-secondary mt-2", "Ctrl/Cmd + Enter also submits the editor value.")
+        actionButton(
+          "run",
+          "Run query",
+          icon = icon("play"),
+          class = "btn-primary w-100"
+        ),
+        p(
+          class = "small text-body-secondary mt-2",
+          "Both Run buttons execute the current editor contents."
+        )
       ),
       layout_columns(
         col_widths = 12,
@@ -46,7 +55,19 @@ ui <- page_bscode(
         fill = TRUE,
         class = "p-2",
         card(
-          card_header("query.sql"),
+          card_header(
+            div(
+              class = "d-flex align-items-center justify-content-between w-100",
+              span("query.sql"),
+              actionButton(
+                "run_editor",
+                NULL,
+                icon = icon("play"),
+                class = "btn-primary btn-sm",
+                title = "Run query"
+              )
+            )
+          ),
           input_code_editor(
             "sql",
             value = sql_default,
@@ -60,7 +81,10 @@ ui <- page_bscode(
         card(
           card_header(textOutput("console_title", inline = TRUE)),
           card_body(
-            div(style = "height:100%; overflow:auto;", tableOutput("result")),
+            div(
+              class = "h-100 overflow-auto",
+              verbatimTextOutput("result", placeholder = TRUE)
+            ),
             fillable = TRUE
           )
         )
@@ -111,9 +135,12 @@ server <- function(input, output, session) {
   }
 
   observeEvent(input$run, run_query())
-  observeEvent(input$sql, run_query(), ignoreInit = TRUE)
+  observeEvent(input$run_editor, run_query())
 
-  output$result <- renderTable(result(), rownames = FALSE)
+  output$result <- renderPrint({
+    tibble::as_tibble(result())
+  })
+
   output$console_title <- renderText(paste("Results ·", status()))
 
   session$onSessionEnded(function() {
