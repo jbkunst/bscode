@@ -52,48 +52,39 @@
     link.prepend(icon);
   }
 
-  function initLink(link) {
+  function tooltipPlacement(shell) {
+    const requested = shell.dataset.bscodeTooltipPlacement || "auto";
+    if (requested === "none") return null;
+
+    return requested === "auto"
+      ? oppositePlacement(shell.dataset.bscodePosition || "left")
+      : requested;
+  }
+
+  function initLink(shell, link) {
     if (link.dataset.bscodeReady === "true") return;
 
     const label = directLabel(link);
+    const placement = tooltipPlacement(shell);
+
     addLetterFallback(link, label);
     hideLabel(link);
 
     link.setAttribute("aria-label", label);
-    link.setAttribute("data-bs-title", label);
     link.removeAttribute("title");
+
+    if (placement) {
+      link.dataset.bscodeLabel = label;
+      link.dataset.bscodeTooltipPlacement = placement;
+    }
+
     link.dataset.bscodeReady = "true";
   }
 
-  function initTooltip(shell) {
-    if (shell.dataset.bscodeTooltipReady === "true") return;
-
-    const requested = shell.dataset.bscodeTooltipPlacement || "auto";
-    if (requested === "none") {
-      shell.dataset.bscodeTooltipReady = "true";
-      return;
-    }
-
-    if (!window.bootstrap || !bootstrap.Tooltip) return;
-
-    const placement = requested === "auto"
-      ? oppositePlacement(shell.dataset.bscodePosition || "left")
-      : requested;
-
-    bootstrap.Tooltip.getOrCreateInstance(shell, {
-      selector: ".bscode-nav .nav-link",
-      placement: placement,
-      trigger: "hover focus",
-      container: "body",
-      customClass: "bscode-tooltip-light"
-    });
-
-    shell.dataset.bscodeTooltipReady = "true";
-  }
-
   function initShell(shell) {
-    shell.querySelectorAll(".bscode-nav .nav-link").forEach(initLink);
-    initTooltip(shell);
+    shell.querySelectorAll(".bscode-nav .nav-link").forEach(function (link) {
+      initLink(shell, link);
+    });
   }
 
   function initAll() {
