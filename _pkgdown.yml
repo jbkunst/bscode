@@ -23,7 +23,7 @@ navbar:
     examples:
       text: Examples
       menu:
-        - text: All examples
+        - text: Examples overview
           href: articles/index.html
         - text: "-----"
         - text: Basic navigation
