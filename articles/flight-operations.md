@@ -6,8 +6,9 @@ built from regular bslib layouts and popular htmlwidgets.
 This example checks:
 
 - Cards, value boxes, and filling layouts inside a screen-filling panel.
-- Plotly, Leaflet, and Reactable rendering in the same application.
-- Staged initialization of two Plotly widgets in the Shinylive build.
+- Plotly, Leaflet, Reactable, and a base R chart rendering together.
+- Plotly initializes after the first UI flush to avoid Shinylive asset
+  races.
 
 ## Live app
 
