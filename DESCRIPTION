@@ -1,6 +1,6 @@
 Package: bscode
-Title: A Lightweight VS Code-Inspired Activity Bar for bslib
-Version: 0.0.0.9001
+Title: A Lightweight VS Code-Inspired Navigation Shell for bslib
+Version: 0.0.0.9002
 Authors@R: person(
     "Joshua", "Kunst",
     email = "56481+jbkunst@users.noreply.github.com",
@@ -8,7 +8,8 @@ Authors@R: person(
   )
 Description: Provides an opinionated, screen-filling page layout for Shiny
     applications. It reuses bslib navigation components while presenting them
-    as a compact VS Code-inspired activity bar on the left or right.
+    as either a compact activity bar or a wider icon-and-label sidebar on the
+    left or right.
 License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://jbkunst.github.io/bscode/, https://github.com/jbkunst/bscode
@@ -22,7 +23,6 @@ Suggests:
     fontawesome,
     leaflet,
     lucidr,
-    mapgl,
     phosphoricons,
     plotly,
     reactable,
