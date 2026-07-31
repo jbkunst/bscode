@@ -27,7 +27,7 @@ examples <- list(
     tests = c(
       "Cards, value boxes, and filling layouts inside a screen-filling panel.",
       "Plotly, Leaflet, and Reactable rendering in the same application.",
-      "Widget resizing after navigation and full-screen card changes."
+      "Staged initialization of two Plotly widgets in the Shinylive build."
     ),
     viewer_height = 780
   ),
