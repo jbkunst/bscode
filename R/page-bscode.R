@@ -143,6 +143,7 @@ bscode_dependency <- function() {
 #' @param id Navigation input ID, compatible with [bslib::nav_select()].
 #' @param selected Value of the initially selected panel.
 #' @param position Position of the activity bar: `"left"` or `"right"`.
+#' @param size Activity bar size: `"sm"`, `"md"`, `"lg"`, or `"xl"`.
 #' @param fillable `TRUE` to make every panel fill the viewport, `FALSE` to use
 #'   normal scrolling, or a character vector containing panel values to fill.
 #' @param fillable_mobile Whether the page fills the viewport on narrow screens.
@@ -163,6 +164,7 @@ page_bscode <- function(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
+  size = c("sm", "md", "lg", "xl"),
   fillable = TRUE,
   fillable_mobile = TRUE,
   tooltip_placement = "auto",
@@ -171,6 +173,7 @@ page_bscode <- function(
   lang = NULL
 ) {
   position <- match.arg(position)
+  size <- match.arg(size)
 
   if (!is.null(tooltip_placement)) {
     tooltip_placement <- match.arg(
@@ -272,7 +275,11 @@ page_bscode <- function(
 
   shell <- htmltools::tagAppendAttributes(
     navset,
-    class = paste("bscode-shell", paste0("bscode-position-", position)),
+    class = paste(
+      "bscode-shell",
+      paste0("bscode-position-", position),
+      paste0("bscode-size-", size)
+    ),
     `data-bscode-position` = position,
     `data-bscode-tooltip-placement` = tooltip_placement %||% "none"
   )
