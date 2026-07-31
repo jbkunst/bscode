@@ -73,7 +73,7 @@ prepare_panel_fill <- function(item, fillable) {
   bslib::as_fill_carrier(item)
 }
 
-make_brand <- function(title, brand) {
+make_brand <- function(title, brand, nav_mode) {
   if (identical(brand, FALSE)) {
     return(NULL)
   }
@@ -85,7 +85,11 @@ make_brand <- function(title, brand) {
       return(NULL)
     }
 
-    brand <- substr(trimws(title), 1L, 1L)
+    brand <- if (identical(nav_mode, "sidebar")) {
+      trimws(title)
+    } else {
+      substr(trimws(title), 1L, 1L)
+    }
   }
 
   htmltools::div(
@@ -130,29 +134,33 @@ bscode_dependency <- function() {
   )
 }
 
-#' A VS Code-inspired activity bar page
+#' A VS Code-inspired navigation page
 #'
-#' Creates a screen-filling bslib page whose navigation is displayed as a
-#' compact activity bar on the left or right. The dots must contain
-#' [bslib::nav_panel()] and [bslib::nav_spacer()] objects.
+#' Creates a screen-filling bslib page whose navigation is displayed as either
+#' a compact activity bar or a wider sidebar with icons and labels. The dots
+#' must contain [bslib::nav_panel()] and [bslib::nav_spacer()] objects.
 #'
 #' @param ... Navigation items created by [bslib::nav_panel()] or
 #'   [bslib::nav_spacer()].
 #' @param header Optional UI displayed above every navigation panel.
-#' @param title Window title and source of the default brand letter.
+#' @param title Window title and source of the default brand.
 #' @param id Navigation input ID, compatible with [bslib::nav_select()].
 #' @param selected Value of the initially selected panel.
-#' @param position Position of the activity bar: `"left"` or `"right"`.
-#' @param size Activity bar size: `"sm"`, `"md"`, `"lg"`, or `"xl"`.
+#' @param position Position of the navigation: `"left"` or `"right"`.
+#' @param nav_mode Navigation presentation: `"activity"` for icons only or
+#'   `"sidebar"` for icons and labels.
+#' @param nav_width Width of the navigation when `nav_mode = "sidebar"`.
+#' @param size Navigation item size: `"sm"`, `"md"`, `"lg"`, or `"xl"`.
 #' @param fillable `TRUE` to make every panel fill the viewport, `FALSE` to use
 #'   normal scrolling, or a character vector containing panel values to fill.
 #' @param fillable_mobile Whether the page fills the viewport on narrow screens.
-#' @param tooltip_placement Tooltip placement. `"auto"` uses the side opposite
-#'   the activity bar. Use `NULL` to disable tooltips.
+#' @param tooltip_placement Tooltip placement in activity mode. `"auto"` uses
+#'   the side opposite the navigation. Use `NULL` to disable tooltips.
 #' @param theme A [bslib::bs_theme()] object. The default uses VS Code blue as
 #'   the Bootstrap primary color.
-#' @param brand Optional UI shown at the top of the activity bar. `NULL` uses
-#'   the first letter of a character `title`; `FALSE` removes the brand.
+#' @param brand Optional UI shown at the top of the navigation. `NULL` uses the
+#'   first letter of a character `title` in activity mode and the full title in
+#'   sidebar mode; `FALSE` removes the brand.
 #' @param lang Language attribute passed to [bslib::page_fillable()].
 #'
 #' @return A Shiny page UI.
@@ -164,6 +172,8 @@ page_bscode <- function(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
+  nav_mode = c("activity", "sidebar"),
+  nav_width = "240px",
   size = "md",
   fillable = TRUE,
   fillable_mobile = TRUE,
@@ -173,7 +183,15 @@ page_bscode <- function(
   lang = NULL
 ) {
   position <- match.arg(position)
+  nav_mode <- match.arg(nav_mode)
   size <- match.arg(size, c("sm", "md", "lg", "xl"))
+
+  nav_width <- tryCatch(
+    htmltools::validateCssUnit(nav_width),
+    error = function(error) {
+      stop("`nav_width` must be a valid CSS unit, such as `240px` or `16rem`.", call. = FALSE)
+    }
+  )
 
   if (!is.null(tooltip_placement)) {
     tooltip_placement <- match.arg(
@@ -261,7 +279,7 @@ page_bscode <- function(
   navset$children <- list(
     htmltools::div(
       class = "bscode-activity-bar",
-      make_brand(title, brand),
+      make_brand(title, brand, nav_mode),
       nav
     ),
     htmltools::tags$main(
@@ -278,9 +296,12 @@ page_bscode <- function(
     class = paste(
       "bscode-shell",
       paste0("bscode-position-", position),
+      paste0("bscode-nav-mode-", nav_mode),
       paste0("bscode-size-", size)
     ),
+    style = htmltools::css(`--bscode-nav-width` = nav_width),
     `data-bscode-position` = position,
+    `data-bscode-nav-mode` = nav_mode,
     `data-bscode-tooltip-placement` = tooltip_placement %||% "none"
   )
   shell <- bslib::as_fill_carrier(shell)
