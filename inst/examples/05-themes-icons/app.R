@@ -53,6 +53,12 @@ ui <- page_bscode(
     icon = bsicons::bs_icon("palette2"),
     div(
       class = "p-4 h-100",
+      h2("bslib themes and icon libraries"),
+      p(
+        class = "text-body-secondary",
+        "This example tests page_bscode() with a custom bslib theme and ",
+        "navigation icons from bsicons, Font Awesome, Lucide, Phosphor, and Shiny."
+      ),
       layout_columns(
         col_widths = c(7, 5),
         icon_card(
@@ -145,7 +151,7 @@ ui <- page_bscode(
       ),
       p(
         class = "text-body-secondary",
-        "The activity bar is on the right, so automatic tooltips open to the left."
+        "The activity bar is on the right, so automatic light tooltips open to the left."
       )
     )
   )
