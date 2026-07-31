@@ -164,6 +164,19 @@ body {
   font-weight: 600;
 }
 
+.bscode-tooltip-light {
+  --bs-tooltip-bg: #ffffff;
+  --bs-tooltip-color: #202326;
+  --bs-tooltip-opacity: 1;
+}
+
+.bscode-tooltip-light .tooltip-inner {
+  border: 1px solid rgba(32, 35, 38, 0.18);
+  box-shadow: 0 2px 8px rgba(32, 35, 38, 0.18);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
 .bscode-content {
   flex: 1 1 auto;
   width: auto;
