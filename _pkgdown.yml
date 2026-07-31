@@ -2,6 +2,7 @@ url: https://jbkunst.github.io/bscode/
 
 development:
   mode: unreleased
+  version_label: warning
 
 template:
   bootstrap: 5
