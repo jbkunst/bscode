@@ -113,7 +113,10 @@ ui <- page_bscode(
 
 server <- function(input, output, session) {
   output$network_map <- leaflet::renderLeaflet({
-    map <- leaflet::leaflet(places) |>
+    map <- leaflet::leaflet(
+      places,
+      options = leaflet::leafletOptions(zoomControl = FALSE)
+    ) |>
       leaflet::addProviderTiles(leaflet::providers$CartoDB.Positron) |>
       leaflet::addCircleMarkers(
         lng = ~lng,
@@ -144,7 +147,10 @@ server <- function(input, output, session) {
   })
 
   output$terrain_map <- leaflet::renderLeaflet({
-    leaflet::leaflet(places) |>
+    leaflet::leaflet(
+      places,
+      options = leaflet::leafletOptions(zoomControl = FALSE)
+    ) |>
       leaflet::addProviderTiles(leaflet::providers$OpenTopoMap) |>
       leaflet::addMarkers(lng = ~lng, lat = ~lat, label = ~name) |>
       leaflet::fitBounds(

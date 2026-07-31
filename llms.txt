@@ -98,8 +98,8 @@ with Shinylive.
 - [Flight operations
   dashboard](https://jbkunst.github.io/bscode/articles/flight-operations.md):
 
-  Combine bscode with bslib cards, value boxes, Shiny plots, Leaflet,
-  and Reactable.
+  Combine bscode with bslib cards, value boxes, Plotly, Leaflet, and
+  Reactable.
 
 - [Full-screen maps](https://jbkunst.github.io/bscode/articles/maps.md):
 

@@ -1,13 +1,12 @@
 # Flight operations dashboard
 
 The activity bar only handles page navigation. The dashboard itself is
-built from regular bslib layouts and browser-compatible outputs.
+built from regular bslib layouts and popular htmlwidgets.
 
 This example checks:
 
 - Cards, value boxes, and filling layouts inside a screen-filling panel.
-- Base Shiny plots, Leaflet, and Reactable rendering in the same
-  application.
+- Plotly, Leaflet, and Reactable rendering in the same application.
 - Widget resizing after navigation and full-screen card changes.
 
 ## Live app
