@@ -9,7 +9,7 @@ page_bscode(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
-  size = c("sm", "md", "lg", "xl"),
+  size = "md",
   fillable = TRUE,
   fillable_mobile = TRUE,
   tooltip_placement = "auto",
