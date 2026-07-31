@@ -200,8 +200,41 @@ page_bscode <- function(
   )
 
   if (!all(valid)) {
+    item_names <- names(items) %||% rep("", length(items))
+    named_invalid <- unique(item_names[!valid & nzchar(item_names)])
+    unnamed_invalid <- which(!valid & !nzchar(item_names))
+    details <- character()
+
+    if (length(named_invalid)) {
+      details <- c(
+        details,
+        paste0(
+          "Unsupported argument(s): ",
+          paste(sprintf("`%s`", named_invalid), collapse = ", "),
+          "."
+        )
+      )
+    }
+
+    if (length(unnamed_invalid)) {
+      details <- c(
+        details,
+        paste0(
+          "Invalid unnamed item(s) at position(s): ",
+          paste(unnamed_invalid, collapse = ", "),
+          "."
+        )
+      )
+    }
+
     stop(
-      "Every item in `...` must be created by bslib::nav_panel() or bslib::nav_spacer().",
+      paste(
+        c(
+          details,
+          "Every item in `...` must be created by bslib::nav_panel() or bslib::nav_spacer()."
+        ),
+        collapse = " "
+      ),
       call. = FALSE
     )
   }
