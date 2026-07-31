@@ -106,6 +106,12 @@ with Shinylive.
   Run independent Leaflet maps in separate navigation panels and verify
   widget resizing.
 
+- [Sidebar
+  navigation](https://jbkunst.github.io/bscode/articles/sidebar-navigation.md):
+
+  Use the same bslib navigation workflow with a wider icon-and-label
+  sidebar.
+
 - [SQL
   console](https://jbkunst.github.io/bscode/articles/sql-console.md):
 

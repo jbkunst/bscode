@@ -5,9 +5,10 @@ articles:
   articles/basic-navigation: basic-navigation.html
   articles/flight-operations: flight-operations.html
   articles/maps: maps.html
+  articles/sidebar-navigation: sidebar-navigation.html
   articles/sql-console: sql-console.html
   articles/themes-and-icons: themes-and-icons.html
-last_built: 2026-07-31T20:25Z
+last_built: 2026-07-31T20:28Z
 urls:
   reference: https://jbkunst.github.io/bscode/reference
   article: https://jbkunst.github.io/bscode/articles
