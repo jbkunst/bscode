@@ -20,11 +20,12 @@
       Boolean(element.querySelector("svg, i, img, .bscode-letter-icon"));
   }
 
-  function hideLabel(link) {
+  function prepareLabel(link, hidden) {
     Array.from(link.childNodes).forEach(function (node) {
       if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
         const label = document.createElement("span");
-        label.className = "bscode-nav-label visually-hidden";
+        label.className = "bscode-nav-label";
+        if (hidden) label.classList.add("visually-hidden");
         label.textContent = node.textContent.trim();
         node.replaceWith(label);
       }
@@ -32,7 +33,8 @@
 
     Array.from(link.children).forEach(function (child) {
       if (!containsIcon(child)) {
-        child.classList.add("bscode-nav-label", "visually-hidden");
+        child.classList.add("bscode-nav-label");
+        child.classList.toggle("visually-hidden", hidden);
       }
     });
   }
@@ -65,10 +67,11 @@
     if (link.dataset.bscodeReady === "true") return;
 
     const label = directLabel(link);
-    const placement = tooltipPlacement(shell);
+    const activityMode = (shell.dataset.bscodeNavMode || "activity") === "activity";
+    const placement = activityMode ? tooltipPlacement(shell) : null;
 
     addLetterFallback(link, label);
-    hideLabel(link);
+    prepareLabel(link, activityMode);
 
     link.setAttribute("aria-label", label);
     link.removeAttribute("title");
