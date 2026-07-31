@@ -19,14 +19,14 @@ examples <- list(
     slug = "02-cards",
     article = "flight-operations",
     title = "Flight operations dashboard",
-    description = "Combine bscode with bslib cards, value boxes, Shiny plots, Leaflet, and Reactable.",
+    description = "Combine bscode with bslib cards, value boxes, Plotly, Leaflet, and Reactable.",
     intro = paste(
       "The activity bar only handles page navigation.",
-      "The dashboard itself is built from regular bslib layouts and browser-compatible outputs."
+      "The dashboard itself is built from regular bslib layouts and popular htmlwidgets."
     ),
     tests = c(
       "Cards, value boxes, and filling layouts inside a screen-filling panel.",
-      "Base Shiny plots, Leaflet, and Reactable rendering in the same application.",
+      "Plotly, Leaflet, and Reactable rendering in the same application.",
       "Widget resizing after navigation and full-screen card changes."
     ),
     viewer_height = 780
