@@ -9,17 +9,16 @@ This example checks:
 - `nav_select()` changes the active panel from the server.
 - The content area fills the available browser viewport.
 
+## Live app
+
 > The first load may take a moment. The application runs entirely in the
 > browser through WebAssembly.
 
-``` shinylive-r
-#| '!! shinylive warning !!': |
-#|   shinylive does not work in self-contained HTML documents.
-#|   Please set `embed-resources: false` in your metadata.
-#| standalone: true
-#| components: [editor, viewer]
-#| layout: vertical
-#| viewerHeight: 620
+[Open live app](https://jbkunst.github.io/bscode/live/01-basic/)
+
+## Source code
+
+``` bscode-example-source
 library(shiny)
 library(bslib)
 library(bscode)
