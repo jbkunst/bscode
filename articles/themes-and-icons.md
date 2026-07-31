@@ -61,6 +61,7 @@ ui <- page_bscode(
   title = "Icon Studio",
   id = "main_nav",
   position = "right",
+  size = "xl",
   brand = phosphoricons::ph("code", weight = "bold", title = "Icon Studio"),
   theme = bs_theme(
     primary = primary,

@@ -13,6 +13,7 @@ page_bscode(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
+  size = "md",
   fillable = TRUE,
   fillable_mobile = TRUE,
   tooltip_placement = "auto",
@@ -51,6 +52,10 @@ page_bscode(
 - position:
 
   Activity bar position: `"left"` or `"right"`.
+
+- size:
+
+  Activity bar size: `"sm"`, `"md"`, `"lg"`, or `"xl"`.
 
 - fillable:
 
