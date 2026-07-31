@@ -42,13 +42,14 @@ jobs:
           extra-packages: |
             any::pkgdown
             any::quarto
-            cran::shinylive@0.5.0
+            any::shinylive
             any::bsicons
             any::DBI
             any::fontawesome
             any::leaflet
             any::lucidr
             any::phosphoricons
+            any::plotly
             any::reactable
             any::RSQLite
             any::tibble
@@ -59,7 +60,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/shinylive
-          key: ${{ runner.os }}-shinylive-${{ hashFiles('.github/workflows/pkgdown.yaml', 'DESCRIPTION', 'inst/examples/**/app.R') }}
+          key: ${{ runner.os }}-shinylive-${{ hashFiles('DESCRIPTION', 'inst/examples/**/app.R') }}
           restore-keys: |
             ${{ runner.os }}-shinylive-
 
