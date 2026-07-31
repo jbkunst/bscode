@@ -19,14 +19,14 @@ examples <- list(
     slug = "02-cards",
     article = "flight-operations",
     title = "Flight operations dashboard",
-    description = "Combine bscode with bslib cards, value boxes, Plotly, Leaflet, and Reactable.",
+    description = "Combine bscode with bslib cards, value boxes, Shiny plots, Leaflet, and Reactable.",
     intro = paste(
       "The activity bar only handles page navigation.",
-      "The dashboard itself is built from regular bslib layouts and popular htmlwidgets."
+      "The dashboard itself is built from regular bslib layouts and browser-compatible outputs."
     ),
     tests = c(
       "Cards, value boxes, and filling layouts inside a screen-filling panel.",
-      "Plotly, Leaflet, and Reactable rendering in the same application.",
+      "Base Shiny plots, Leaflet, and Reactable rendering in the same application.",
       "Widget resizing after navigation and full-screen card changes."
     ),
     viewer_height = 780
@@ -51,13 +51,13 @@ examples <- list(
     slug = "04-full-map",
     article = "maps",
     title = "Full-screen maps",
-    description = "Run MapLibre and Leaflet in separate navigation panels and verify widget resizing.",
+    description = "Run independent Leaflet maps in separate navigation panels and verify widget resizing.",
     intro = paste(
-      "MapLibre and Leaflet share the same bscode shell without sharing a panel.",
-      "Switching sections tests whether both map libraries recover their full dimensions correctly."
+      "Two independent maps share the same bscode shell without sharing a panel.",
+      "Switching sections tests whether both widgets recover their full dimensions correctly."
     ),
     tests = c(
-      "Two map libraries coexisting in one Shiny application.",
+      "Two independent Leaflet widgets in one Shiny application.",
       "Full-viewport htmlwidgets with floating controls.",
       "Resize events when the selected navigation panel changes."
     ),
