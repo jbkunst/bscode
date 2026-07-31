@@ -23,6 +23,7 @@ This example checks:
 library(shiny)
 library(bslib)
 library(bscode)
+library(plotly)
 
 required_packages <- c("leaflet", "reactable")
 missing_packages <- required_packages[
@@ -106,7 +107,7 @@ ui <- page_bscode(
       card(
         full_screen = TRUE,
         card_header("Route network"),
-        plotOutput("route_network", height = "100%")
+        plotlyOutput("globe", height = "100%")
       ),
       card(
         full_screen = TRUE,
@@ -121,7 +122,7 @@ ui <- page_bscode(
       card(
         full_screen = TRUE,
         card_header("On-time performance"),
-        plotOutput("punctuality", height = "100%")
+        plotlyOutput("punctuality", height = "100%")
       )
     )
   ),
@@ -137,10 +138,10 @@ ui <- page_bscode(
       h2("A dashboard made from ordinary components"),
       p(
         "The activity bar only provides page navigation. Cards, layouts, ",
-        "themes and outputs remain standard bslib and Shiny components."
+        "themes and htmlwidgets remain standard bslib and Shiny components."
       ),
       tags$ul(
-        tags$li("Base Shiny plots render the route network and punctuality chart."),
+        tags$li("Plotly renders the route globe and punctuality chart."),
         tags$li("Leaflet renders the interactive airport map."),
         tags$li("Reactable renders the searchable departures table.")
       )
@@ -149,33 +150,36 @@ ui <- page_bscode(
 )
 
 server <- function(input, output, session) {
-  output$route_network <- renderPlot({
-    par(mar = c(3, 3, 1, 1), bg = "transparent")
-
-    plot(
-      NA,
-      xlim = range(airports$lng) + c(-8, 8),
-      ylim = range(airports$lat) + c(-8, 8),
-      xlab = "Longitude",
-      ylab = "Latitude",
-      asp = 1
-    )
-    grid(col = "#D4D4D4", lty = 1)
-
-    invisible(lapply(split(route_lines, route_lines$route), function(route) {
-      lines(route$lng, route$lat, col = "#007ACC", lwd = 1.5)
-    }))
-
-    points(
-      airports$lng,
-      airports$lat,
-      pch = 21,
-      bg = ifelse(airports$code == "SCL", "#C2410C", "#007ACC"),
-      col = "white",
-      cex = ifelse(airports$code == "SCL", 1.7, 1.2)
-    )
-    text(airports$lng, airports$lat, airports$code, pos = 3, cex = 0.75)
-  }, res = 96)
+  output$globe <- renderPlotly({
+    plot_geo() |>
+      add_lines(
+        data = route_lines,
+        x = ~lng,
+        y = ~lat,
+        split = ~route,
+        hoverinfo = "text",
+        text = ~route,
+        line = list(width = 1)
+      ) |>
+      add_markers(
+        data = airports,
+        x = ~lng,
+        y = ~lat,
+        text = ~paste0(code, " · ", city, "<br>", flights, " flights"),
+        hoverinfo = "text",
+        marker = list(size = 7)
+      ) |>
+      layout(
+        geo = list(
+          projection = list(type = "orthographic"),
+          showland = TRUE,
+          showcountries = TRUE,
+          showocean = TRUE
+        ),
+        margin = list(l = 0, r = 0, b = 0, t = 0),
+        showlegend = FALSE
+      )
+  })
 
   output$airport_map <- leaflet::renderLeaflet({
     map <- leaflet::leaflet(airports) |>
@@ -237,19 +241,21 @@ server <- function(input, output, session) {
     )
   })
 
-  output$punctuality <- renderPlot({
-    par(mar = c(3, 4, 1, 1), bg = "transparent")
-    bars <- barplot(
-      routes$on_time * 100,
-      names.arg = routes$code,
-      ylim = c(0, 100),
-      ylab = "On time (%)",
-      border = NA,
-      col = "#007ACC"
-    )
-    abline(h = 80, lty = 2, col = "#62676C")
-    text(bars, routes$on_time * 100, paste0(round(routes$on_time * 100), "%"), pos = 3, cex = 0.75)
-  }, res = 96)
+  output$punctuality <- renderPlotly({
+    plot_ly(
+      routes,
+      x = ~code,
+      y = ~on_time,
+      text = ~paste0(city, ": ", round(on_time * 100), "%"),
+      hoverinfo = "text",
+      type = "bar"
+    ) |>
+      layout(
+        xaxis = list(title = ""),
+        yaxis = list(title = "", tickformat = ".0%", range = c(0, 1)),
+        margin = list(l = 45, r = 10, b = 35, t = 10)
+      )
+  })
 }
 
 shinyApp(ui, server)
