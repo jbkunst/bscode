@@ -138,6 +138,7 @@ bscode_dependency <- function() {
 #'
 #' @param ... Navigation items created by [bslib::nav_panel()] or
 #'   [bslib::nav_spacer()].
+#' @param header Optional UI displayed above every navigation panel.
 #' @param title Window title and source of the default brand letter.
 #' @param id Navigation input ID, compatible with [bslib::nav_select()].
 #' @param selected Value of the initially selected panel.
@@ -157,6 +158,7 @@ bscode_dependency <- function() {
 #' @export
 page_bscode <- function(
   ...,
+  header = NULL,
   title = NULL,
   id = NULL,
   selected = NULL,
@@ -226,7 +228,13 @@ page_bscode <- function(
       make_brand(title, brand),
       nav
     ),
-    htmltools::tags$main(class = "bscode-content", content)
+    htmltools::tags$main(
+      class = "bscode-content",
+      if (!is.null(header)) {
+        htmltools::div(class = "bscode-header", header)
+      },
+      content
+    )
   )
 
   shell <- htmltools::tagAppendAttributes(
