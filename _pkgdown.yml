@@ -37,16 +37,18 @@ navbar:
           href: articles/maps.html
         - text: Themes and icons
           href: articles/themes-and-icons.html
+        - text: Sidebar navigation
+          href: articles/sidebar-navigation.html
 
 articles:
   - title: Interactive examples
-    desc: Edit the R code and run each bscode application directly in the browser with Shinylive.
+    desc: Run each bscode application directly in the browser with Shinylive.
     contents:
       - starts_with("articles/")
 
 reference:
   - title: Page layout
-    desc: A VS Code-inspired activity bar for bslib applications.
+    desc: VS Code-inspired activity bar and sidebar navigation for bslib applications.
     contents:
       - page_bscode
 
