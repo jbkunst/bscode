@@ -21,6 +21,7 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      SHINYLIVE_WASM_PACKAGES: "true"
 
     permissions:
       contents: write
@@ -36,8 +37,36 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::.
+          extra-packages: |
+            any::pkgdown
+            any::shinylive
+            any::bsicons
+            any::DBI
+            any::fontawesome
+            any::leaflet
+            any::lucidr
+            any::mapgl
+            any::phosphoricons
+            any::plotly
+            any::reactable
+            any::RSQLite
+            any::tibble
+            local::.
           needs: website
+
+      - name: Cache Shinylive assets and packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/shinylive
+          key: ${{ runner.os }}-shinylive-${{ hashFiles('DESCRIPTION', 'inst/examples/**/app.R') }}
+          restore-keys: |
+            ${{ runner.os }}-shinylive-
+
+      - name: Install Shinylive Quarto extension
+        run: quarto add quarto-ext/shinylive --no-prompt
+
+      - name: Generate interactive example articles
+        run: Rscript tools/build-example-articles.R
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
@@ -47,6 +76,6 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
         with:
-          clean: false
+          clean: true
           branch: gh-pages
           folder: docs
