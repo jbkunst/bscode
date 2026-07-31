@@ -28,6 +28,46 @@ body {
   background: var(--bs-body-bg);
 }
 
+.bscode-size-sm {
+  --bscode-bar-width: 50px;
+  --bscode-item-height: 48px;
+  --bscode-icon-size: 1.15rem;
+  --bscode-brand-icon-size: 1.4rem;
+  --bscode-brand-font-size: 1.05rem;
+  --bscode-letter-size: 1.35rem;
+  --bscode-letter-font-size: 0.75rem;
+}
+
+.bscode-size-md {
+  --bscode-bar-width: 58px;
+  --bscode-item-height: 54px;
+  --bscode-icon-size: 1.35rem;
+  --bscode-brand-icon-size: 1.6rem;
+  --bscode-brand-font-size: 1.2rem;
+  --bscode-letter-size: 1.55rem;
+  --bscode-letter-font-size: 0.85rem;
+}
+
+.bscode-size-lg {
+  --bscode-bar-width: 68px;
+  --bscode-item-height: 64px;
+  --bscode-icon-size: 1.65rem;
+  --bscode-brand-icon-size: 1.95rem;
+  --bscode-brand-font-size: 1.4rem;
+  --bscode-letter-size: 1.9rem;
+  --bscode-letter-font-size: 1rem;
+}
+
+.bscode-size-xl {
+  --bscode-bar-width: 80px;
+  --bscode-item-height: 74px;
+  --bscode-icon-size: 2rem;
+  --bscode-brand-icon-size: 2.3rem;
+  --bscode-brand-font-size: 1.65rem;
+  --bscode-letter-size: 2.25rem;
+  --bscode-letter-font-size: 1.15rem;
+}
+
 .bscode-position-left {
   flex-direction: row;
 }
@@ -38,9 +78,9 @@ body {
 
 .bscode-activity-bar {
   display: flex;
-  flex: 0 0 58px;
+  flex: 0 0 var(--bscode-bar-width);
   flex-direction: column;
-  width: 58px;
+  width: var(--bscode-bar-width);
   min-height: 0;
   background: var(--bs-primary);
   box-shadow: 1px 0 0 rgba(15, 23, 42, 0.12);
@@ -52,12 +92,12 @@ body {
 
 .bscode-brand {
   display: grid;
-  flex: 0 0 58px;
+  flex: 0 0 var(--bscode-bar-width);
   place-items: center;
-  width: 58px;
-  height: 58px;
+  width: var(--bscode-bar-width);
+  height: var(--bscode-bar-width);
   color: rgba(255, 255, 255, 0.98);
-  font-size: 1.2rem;
+  font-size: var(--bscode-brand-font-size);
   font-weight: 500;
   letter-spacing: -0.03em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
@@ -66,8 +106,8 @@ body {
 
 .bscode-brand > svg,
 .bscode-brand > img {
-  max-width: 1.6rem;
-  max-height: 1.6rem;
+  max-width: var(--bscode-brand-icon-size);
+  max-height: var(--bscode-brand-icon-size);
 }
 
 .bscode-nav {
@@ -92,8 +132,8 @@ body {
 .bscode-nav .nav-link {
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 54px;
+  width: var(--bscode-bar-width);
+  height: var(--bscode-item-height);
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -111,21 +151,21 @@ body {
 }
 
 .bscode-nav .nav-link svg {
-  width: 1.35rem !important;
-  height: 1.35rem !important;
-  max-width: 1.35rem !important;
-  max-height: 1.35rem !important;
-  font-size: 1.35rem !important;
+  width: var(--bscode-icon-size) !important;
+  height: var(--bscode-icon-size) !important;
+  max-width: var(--bscode-icon-size) !important;
+  max-height: var(--bscode-icon-size) !important;
+  font-size: var(--bscode-icon-size) !important;
   line-height: 1;
 }
 
 .bscode-nav .nav-link i,
 .bscode-nav .nav-link img {
-  width: 1.35rem;
-  height: 1.35rem;
-  max-width: 1.35rem;
-  max-height: 1.35rem;
-  font-size: 1.35rem;
+  width: var(--bscode-icon-size);
+  height: var(--bscode-icon-size);
+  max-width: var(--bscode-icon-size);
+  max-height: var(--bscode-icon-size);
+  font-size: var(--bscode-icon-size);
   line-height: 1;
 }
 
@@ -156,11 +196,11 @@ body {
 .bscode-letter-icon {
   display: grid;
   place-items: center;
-  width: 1.55rem;
-  height: 1.55rem;
+  width: var(--bscode-letter-size);
+  height: var(--bscode-letter-size);
   border: 1px solid currentColor;
   border-radius: 0.3rem;
-  font-size: 0.85rem;
+  font-size: var(--bscode-letter-font-size);
   font-weight: 600;
 }
 
@@ -220,22 +260,43 @@ body {
 }
 
 @media (max-width: 600px) {
-  .bscode-activity-bar,
-  .bscode-brand,
-  .bscode-nav .nav-link {
-    width: 52px;
+  .bscode-size-sm {
+    --bscode-bar-width: 46px;
+    --bscode-item-height: 44px;
+    --bscode-icon-size: 1.05rem;
+    --bscode-brand-icon-size: 1.25rem;
+    --bscode-brand-font-size: 1rem;
+    --bscode-letter-size: 1.25rem;
+    --bscode-letter-font-size: 0.7rem;
   }
 
-  .bscode-activity-bar {
-    flex-basis: 52px;
+  .bscode-size-md {
+    --bscode-bar-width: 52px;
+    --bscode-item-height: 50px;
+    --bscode-icon-size: 1.2rem;
+    --bscode-brand-icon-size: 1.45rem;
+    --bscode-brand-font-size: 1.1rem;
+    --bscode-letter-size: 1.4rem;
+    --bscode-letter-font-size: 0.78rem;
   }
 
-  .bscode-brand {
-    flex-basis: 52px;
-    height: 52px;
+  .bscode-size-lg {
+    --bscode-bar-width: 58px;
+    --bscode-item-height: 56px;
+    --bscode-icon-size: 1.35rem;
+    --bscode-brand-icon-size: 1.6rem;
+    --bscode-brand-font-size: 1.2rem;
+    --bscode-letter-size: 1.55rem;
+    --bscode-letter-font-size: 0.85rem;
   }
 
-  .bscode-nav .nav-link {
-    height: 50px;
+  .bscode-size-xl {
+    --bscode-bar-width: 64px;
+    --bscode-item-height: 62px;
+    --bscode-icon-size: 1.5rem;
+    --bscode-brand-icon-size: 1.8rem;
+    --bscode-brand-font-size: 1.3rem;
+    --bscode-letter-size: 1.75rem;
+    --bscode-letter-font-size: 0.95rem;
   }
 }
