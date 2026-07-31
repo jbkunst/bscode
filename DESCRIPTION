@@ -21,7 +21,9 @@ Suggests:
     bsicons,
     DBI,
     fontawesome,
+    leaflet,
     mapgl,
     plotly,
+    reactable,
     RSQLite,
     tibble
