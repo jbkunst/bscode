@@ -1,7 +1,5 @@
 $vscode-blue: #007acc;
 $vscode-blue-dark: #0065a9;
-$vscode-editor: #f3f3f3;
-$vscode-border: #d4d4d4;
 
 :root {
   --bscode-ui-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -18,118 +16,25 @@ body,
 code,
 pre,
 kbd,
-samp,
-.sourceCode {
+samp {
   font-family: var(--bscode-code-font);
   font-variant-ligatures: none;
   font-weight: 400;
 }
 
-main pre code,
-main .sourceCode {
-  font-size: 0.9rem;
-  line-height: 1.52;
-}
-
-pre.downlit a,
-pre.sourceCode a,
-.sourceCode a,
-.sourceCode a:any-link,
-.downlit a,
-.downlit a:any-link {
-  border-bottom: 0 !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
-  text-decoration-line: none !important;
-}
-
 .navbar {
-  border-bottom: 1px solid $vscode-blue-dark;
   background: $vscode-blue;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid $vscode-blue-dark;
 }
 
-.navbar-brand {
-  color: #ffffff;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
+.navbar-brand,
 .navbar .nav-link {
-  border-radius: 0.2rem;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(255, 255, 255, 0.9);
 }
 
+.navbar-brand,
 .navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-link.active {
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.12);
-}
-
-.navbar .navbar-toggler,
-.navbar .navbar-toggler-icon,
-.navbar .bi {
-  color: #ffffff;
-}
-
-a {
-  text-underline-offset: 0.16em;
-}
-
-a:hover {
-  color: $vscode-blue-dark;
-}
-
-main pre,
-.sourceCode,
-.bscode-example-source {
-  border: 1px solid $vscode-border;
-  border-radius: 0.25rem;
-  background: #ffffff;
-}
-
-.bscode-example-source {
-  max-height: 44rem;
-  overflow: auto;
-  padding: 1rem;
-  white-space: pre;
-}
-
-.bscode-example-source code {
-  color: inherit;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  white-space: pre;
-}
-
-.bscode-live-frame {
-  display: block;
-  width: 100%;
-  border: 1px solid $vscode-border;
-  border-radius: 0.35rem;
-  background: #ffffff;
-}
-
-[data-bs-theme="dark"] main pre,
-[data-bs-theme="dark"] .sourceCode,
-[data-bs-theme="dark"] .bscode-example-source {
-  border-color: #3c3c3c;
-  background: #1e1e1e;
-}
-
-.btn-primary {
-  border-color: $vscode-blue;
-  background-color: $vscode-blue;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  border-color: $vscode-blue-dark;
-  background-color: $vscode-blue-dark;
-}
-
-.pkgdown-sidebar {
-  border-right-color: $vscode-border;
 }
