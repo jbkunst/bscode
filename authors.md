@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/jbkunst/bscode/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/jbkunst/bscode/blob/v0.0.0.9001/DESCRIPTION)
 
 Kunst J (2026). *bscode: A Lightweight VS Code-Inspired Activity Bar for
 bslib*. R package version 0.0.0.9001,
