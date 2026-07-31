@@ -72,7 +72,8 @@
         title: label,
         placement: placement,
         trigger: "hover focus",
-        container: "body"
+        container: "body",
+        customClass: "bscode-tooltip-light"
       });
     }
 
