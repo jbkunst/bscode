@@ -26,6 +26,11 @@ library(bscode)
 ui <- page_bscode(
   title = "Basic app",
   id = "main_nav",
+  header = div(
+    class = "d-flex align-items-center gap-2 px-4 py-3 border-bottom bg-body",
+    strong("Basic app"),
+    span(class = "text-body-secondary", "Persistent across panels")
+  ),
 
   nav_panel(
     "Home",

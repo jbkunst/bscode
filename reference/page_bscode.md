@@ -8,6 +8,7 @@ compact activity bar on the left or right.
 ``` r
 page_bscode(
   ...,
+  header = NULL,
   title = NULL,
   id = NULL,
   selected = NULL,
@@ -29,6 +30,10 @@ page_bscode(
   [`bslib::nav_panel()`](https://rstudio.github.io/bslib/reference/nav-items.html)
   or
   [`bslib::nav_spacer()`](https://rstudio.github.io/bslib/reference/nav-items.html).
+
+- header:
+
+  Optional UI displayed above every navigation panel.
 
 - title:
 
