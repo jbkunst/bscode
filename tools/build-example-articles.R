@@ -102,6 +102,7 @@ for (example in examples) {
     "---",
     paste0("title: ", quote_yaml(example$title)),
     paste0("description: ", quote_yaml(example$description)),
+    "engine: markdown",
     "format:",
     "  html:",
     "    minimal: true",
