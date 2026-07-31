@@ -5,7 +5,7 @@ $vscode-border: #d4d4d4;
 
 :root {
   --bscode-ui-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --bscode-code-font: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --bscode-code-font: "Cascadia Mono", "Cascadia Code", Consolas, "SFMono-Regular", "Liberation Mono", monospace;
 }
 
 body,
@@ -21,6 +21,22 @@ kbd,
 samp,
 .sourceCode {
   font-family: var(--bscode-code-font);
+  font-variant-ligatures: none;
+  font-weight: 400;
+}
+
+main pre code,
+main .sourceCode {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+main pre code a,
+main .sourceCode a,
+main .sourceCode a:any-link {
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }
 
 .navbar {
