@@ -78,5 +78,21 @@ examples <- list(
       "Automatic light tooltips and right-side navigation."
     ),
     viewer_height = 700
+  ),
+  list(
+    slug = "06-sidebar",
+    article = "sidebar-navigation",
+    title = "Sidebar navigation",
+    description = "Use the same bslib navigation workflow with a wider icon-and-label sidebar.",
+    intro = paste(
+      "Sidebar mode keeps the same navigation model as the compact activity bar.",
+      "Only its presentation changes: section labels remain visible and the brand can use the full width."
+    ),
+    tests = c(
+      "`nav_mode = \"sidebar\"` displays icons and section titles together.",
+      "`nav_width` controls the width using any valid CSS unit.",
+      "`nav_panel()`, `nav_spacer()`, and `nav_select()` work unchanged."
+    ),
+    viewer_height = 720
   )
 )
