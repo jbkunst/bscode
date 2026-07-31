@@ -96,6 +96,28 @@ make_brand <- function(title, brand) {
   )
 }
 
+split_navset <- function(navset) {
+  if (!inherits(navset, "shiny.tag")) {
+    stop("Unable to build the bslib navigation container.", call. = FALSE)
+  }
+
+  children <- navset$children
+  nav_index <- which(vapply(children, has_class, logical(1), class = "nav"))
+  content_index <- which(vapply(children, has_class, logical(1), class = "tab-content"))
+
+  if (length(nav_index) != 1L || length(content_index) != 1L) {
+    stop(
+      "Unable to locate the navigation and content elements produced by bslib::navset_pill().",
+      call. = FALSE
+    )
+  }
+
+  list(
+    nav = children[[nav_index]],
+    content = children[[content_index]]
+  )
+}
+
 bscode_dependency <- function() {
   path <- system.file("www", package = "bscode")
 
@@ -190,29 +212,28 @@ page_bscode <- function(
     c(items, list(id = id, selected = selected))
   )
 
-  if (length(navset) < 2L) {
-    stop("Unable to build the bslib navigation container.", call. = FALSE)
-  }
-
-  nav <- htmltools::tagAppendAttributes(navset[[1L]], class = "bscode-nav")
+  parts <- split_navset(navset)
+  nav <- htmltools::tagAppendAttributes(parts$nav, class = "bscode-nav")
   content <- htmltools::tagAppendAttributes(
-    navset[[2L]],
+    parts$content,
     class = "bscode-tab-content"
   )
   content <- bslib::as_fill_carrier(content)
 
-  bar <- htmltools::div(
-    class = "bscode-activity-bar",
-    make_brand(title, brand),
-    nav
+  navset$children <- list(
+    htmltools::div(
+      class = "bscode-activity-bar",
+      make_brand(title, brand),
+      nav
+    ),
+    htmltools::tags$main(class = "bscode-content", content)
   )
 
-  shell <- htmltools::div(
+  shell <- htmltools::tagAppendAttributes(
+    navset,
     class = paste("bscode-shell", paste0("bscode-position-", position)),
     `data-bscode-position` = position,
-    `data-bscode-tooltip-placement` = tooltip_placement %||% "none",
-    bar,
-    htmltools::tags$main(class = "bscode-content", content)
+    `data-bscode-tooltip-placement` = tooltip_placement %||% "none"
   )
   shell <- bslib::as_fill_carrier(shell)
 
