@@ -1,0 +1,81 @@
+$vscode-blue: #007acc;
+$vscode-blue-dark: #0065a9;
+$vscode-workbench: #252526;
+$vscode-editor: #f3f3f3;
+$vscode-border: #d4d4d4;
+
+:root {
+  --bscode-ui-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --bscode-code-font: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+body,
+.navbar,
+.btn,
+.form-control {
+  font-family: var(--bscode-ui-font);
+}
+
+code,
+pre,
+kbd,
+samp,
+.sourceCode {
+  font-family: var(--bscode-code-font);
+}
+
+.navbar {
+  border-bottom: 1px solid #3c3c3c;
+  box-shadow: none;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.navbar .nav-link {
+  color: #cccccc;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: #ffffff;
+}
+
+a {
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: $vscode-blue-dark;
+}
+
+main pre,
+.sourceCode {
+  border: 1px solid $vscode-border;
+  border-radius: 0.25rem;
+  background: #ffffff;
+}
+
+[data-bs-theme="dark"] main pre,
+[data-bs-theme="dark"] .sourceCode {
+  border-color: #3c3c3c;
+  background: #1e1e1e;
+}
+
+.btn-primary {
+  border-color: $vscode-blue;
+  background-color: $vscode-blue;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  border-color: $vscode-blue-dark;
+  background-color: $vscode-blue-dark;
+}
+
+.pkgdown-sidebar {
+  border-right-color: $vscode-border;
+}
