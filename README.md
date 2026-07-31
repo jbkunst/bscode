@@ -48,9 +48,9 @@ shiny::runApp(system.file("examples/01-basic", package = "bscode"))
 Available examples:
 
 - `01-basic`: familiar `bslib` navigation and `nav_select()`.
-- `02-cards`: cards, value boxes, filling layouts, and Plotly.
+- `02-cards`: cards, value boxes, Plotly, Leaflet, and Reactable.
 - `03-sql-console`: a VS Code-like SQL editor and console backed by SQLite.
-- `04-full-map`: a full-screen MapLibre htmlwidget with floating controls.
+- `04-full-map`: full-screen MapLibre and Leaflet panels that test htmlwidget resizing when navigation changes.
 - `05-themes-icons`: right-side navigation, custom themes, mixed icon packages, and letter fallback.
 
 ## Development
