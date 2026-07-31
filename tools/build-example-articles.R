@@ -1,91 +1,17 @@
-examples <- list(
-  list(
-    slug = "01-basic",
-    article = "basic-navigation",
-    title = "Basic navigation",
-    description = "A minimal bscode app using familiar bslib navigation and nav_select().",
-    intro = paste(
-      "This is the smallest useful bscode application.",
-      "It changes the page shell while keeping the usual bslib navigation workflow."
-    ),
-    tests = c(
-      "`nav_panel()` and `nav_spacer()` remain ordinary bslib components.",
-      "`nav_select()` changes the active panel from the server.",
-      "The content area fills the available browser viewport."
-    ),
-    viewer_height = 620
-  ),
-  list(
-    slug = "02-cards",
-    article = "flight-operations",
-    title = "Flight operations dashboard",
-    description = "Combine bscode with bslib cards, value boxes, Plotly, Leaflet, and Reactable.",
-    intro = paste(
-      "The activity bar only handles page navigation.",
-      "The dashboard itself is built from regular bslib layouts and popular htmlwidgets."
-    ),
-    tests = c(
-      "Cards, value boxes, and filling layouts inside a screen-filling panel.",
-      "Plotly, Leaflet, and Reactable rendering in the same application.",
-      "Widget resizing after navigation and full-screen card changes."
-    ),
-    viewer_height = 780
-  ),
-  list(
-    slug = "03-sql-console",
-    article = "sql-console",
-    title = "SQL console",
-    description = "A VS Code-like SQL editor and results console backed by an in-memory SQLite database.",
-    intro = paste(
-      "This example uses bscode as a compact application shell for a small analytical tool.",
-      "Queries run only when one of the Run buttons is pressed."
-    ),
-    tests = c(
-      "`bslib::input_code_editor()` inside a fillable card.",
-      "A sidebar explorer and a monospaced results console.",
-      "A light theme using the original VS Code blue."
-    ),
-    viewer_height = 720
-  ),
-  list(
-    slug = "04-full-map",
-    article = "maps",
-    title = "Full-screen maps",
-    description = "Run MapLibre and Leaflet in separate navigation panels and verify widget resizing.",
-    intro = paste(
-      "MapLibre and Leaflet share the same bscode shell without sharing a panel.",
-      "Switching sections tests whether both map libraries recover their full dimensions correctly."
-    ),
-    tests = c(
-      "Two map libraries coexisting in one Shiny application.",
-      "Full-viewport htmlwidgets with floating controls.",
-      "Resize events when the selected navigation panel changes."
-    ),
-    viewer_height = 760
-  ),
-  list(
-    slug = "05-themes-icons",
-    article = "themes-and-icons",
-    title = "Themes and icon libraries",
-    description = "Test custom bslib themes and navigation icons from several R packages.",
-    intro = paste(
-      "This example deliberately mixes icon sources and moves the activity bar to the right.",
-      "It also demonstrates that the page follows a custom bslib theme."
-    ),
-    tests = c(
-      "Bootstrap Icons, Font Awesome, Lucide, Phosphor, and Shiny icons.",
-      "A first-letter fallback when no icon is supplied.",
-      "Automatic light tooltips and right-side navigation."
-    ),
-    viewer_height = 700
-  )
-)
+source(file.path("tools", "example-metadata.R"))
 
 article_dir <- file.path("vignettes", "articles")
 dir.create(article_dir, recursive = TRUE, showWarnings = FALSE)
 
 quote_yaml <- function(x) {
   paste0('"', gsub('"', '\\"', x, fixed = TRUE), '"')
+}
+
+html_escape <- function(x) {
+  x <- gsub("&", "&amp;", x, fixed = TRUE)
+  x <- gsub("<", "&lt;", x, fixed = TRUE)
+  x <- gsub(">", "&gt;", x, fixed = TRUE)
+  x
 }
 
 for (example in examples) {
@@ -96,7 +22,9 @@ for (example in examples) {
   }
 
   app_code <- readLines(app_path, warn = FALSE, encoding = "UTF-8")
+  escaped_code <- paste(html_escape(app_code), collapse = "\n")
   article_path <- file.path(article_dir, paste0(example$article, ".qmd"))
+  live_url <- paste0("../live/", example$slug, "/")
 
   article <- c(
     "---",
@@ -106,9 +34,6 @@ for (example in examples) {
     "format:",
     "  html:",
     "    minimal: true",
-    "    embed-resources: false",
-    "filters:",
-    "  - shinylive",
     "---",
     "",
     example$intro,
@@ -117,17 +42,23 @@ for (example in examples) {
     "",
     paste0("- ", example$tests),
     "",
+    "## Live app",
+    "",
+    "> The first load may take a moment. The application runs entirely in the browser through WebAssembly.",
+    "",
     paste0(
-      "> The first load may take a moment. The application runs entirely in the browser through WebAssembly."
+      '<p><a class="btn btn-primary" href="', live_url,
+      '" target="_blank" rel="noopener">Open live app</a></p>'
+    ),
+    paste0(
+      '<iframe class="bscode-live-frame" src="', live_url,
+      '" title="', example$title,
+      '" loading="eager" style="height:', example$viewer_height, 'px"></iframe>'
     ),
     "",
-    "```{shinylive-r}",
-    "#| standalone: true",
-    "#| components: [editor, viewer]",
-    "#| layout: vertical",
-    paste0("#| viewerHeight: ", example$viewer_height),
-    app_code,
-    "```",
+    "## Source code",
+    "",
+    paste0('<pre class="bscode-example-source"><code>', escaped_code, '</code></pre>'),
     "",
     paste0(
       "[View the original `app.R`](https://github.com/jbkunst/bscode/blob/main/inst/examples/",
