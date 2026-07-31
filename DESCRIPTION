@@ -1,0 +1,20 @@
+Package: bscode
+Title: A Lightweight VS Code-Inspired Activity Bar for bslib
+Version: 0.0.0.9000
+Authors@R: person("Joshua", "Kunst", role = c("aut", "cre"))
+Description: Provides an opinionated, screen-filling page layout for Shiny
+    applications. It reuses bslib navigation components while presenting them
+    as a compact VS Code-inspired activity bar on the left or right.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+    bslib (>= 0.11.0),
+    htmltools,
+    shiny
+Suggests:
+    bsicons,
+    DBI,
+    fontawesome,
+    mapgl,
+    plotly,
+    RSQLite
