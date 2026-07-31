@@ -100,9 +100,11 @@ ui <- page_bscode(
 
 server <- function(input, output, session) {
   output$distribution <- renderPlot({
+    req(input$bins)
+
     hist(
       distribution$value,
-      breaks = input$bins %||% 25,
+      breaks = input$bins,
       col = "#007ACC",
       border = "white",
       main = NULL,
