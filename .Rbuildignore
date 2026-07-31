@@ -1,3 +1,5 @@
 ^bscode\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+^vignettes/articles$
+^_extensions$
