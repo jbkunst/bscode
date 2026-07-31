@@ -9,6 +9,7 @@ page_bscode(
   id = NULL,
   selected = NULL,
   position = c("left", "right"),
+  size = c("sm", "md", "lg", "xl"),
   fillable = TRUE,
   fillable_mobile = TRUE,
   tooltip_placement = "auto",
@@ -24,6 +25,7 @@ page_bscode(
 \item{id}{Navigation input ID, compatible with \code{bslib::nav_select()}.}
 \item{selected}{Value of the initially selected panel.}
 \item{position}{Activity bar position: \code{"left"} or \code{"right"}.}
+\item{size}{Activity bar size: \code{"sm"}, \code{"md"}, \code{"lg"}, or \code{"xl"}.}
 \item{fillable}{Logical value or panel values that should fill the viewport.}
 \item{fillable_mobile}{Whether the layout fills the viewport on narrow screens.}
 \item{tooltip_placement}{Tooltip placement, \code{"auto"}, or \code{NULL} to disable.}
