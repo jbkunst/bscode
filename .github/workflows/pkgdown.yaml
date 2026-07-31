@@ -41,6 +41,7 @@ jobs:
         with:
           extra-packages: |
             any::pkgdown
+            any::quarto
             any::shinylive
             any::bsicons
             any::DBI
