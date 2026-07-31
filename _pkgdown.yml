@@ -1,0 +1,46 @@
+url: https://jbkunst.github.io/bscode/
+
+development:
+  mode: unreleased
+
+template:
+  bootstrap: 5
+  light-switch: true
+  bslib:
+    bg: "#F3F3F3"
+    fg: "#1E1E1E"
+    primary: "#007ACC"
+    secondary: "#6A737D"
+    navbar-bg: "#252526"
+    border-color: "#D4D4D4"
+
+navbar:
+  type: dark
+  structure:
+    left: [reference, examples]
+    right: [search, lightswitch, github]
+  components:
+    examples:
+      text: Examples
+      menu:
+        - text: Basic navigation
+          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/01-basic/app.R
+        - text: Flight operations
+          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/02-cards/app.R
+        - text: SQL console
+          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/03-sql-console/app.R
+        - text: Full-screen map
+          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/04-full-map/app.R
+        - text: Themes and icons
+          href: https://github.com/jbkunst/bscode/blob/main/inst/examples/05-themes-icons/app.R
+
+reference:
+  - title: Page layout
+    desc: A VS Code-inspired activity bar for bslib applications.
+    contents:
+      - page_bscode
+
+footer:
+  structure:
+    left: developed_by
+    right: built_with
