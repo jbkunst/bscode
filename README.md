@@ -1,6 +1,8 @@
 # bscode
 
 > A lightweight VS Code-inspired activity bar for bslib.
+>
+> **`bscode = bslib + VS Code`**
 
 `bscode` provides an opinionated, screen-filling page layout for Shiny. It is a compact alternative to `bslib::page_navbar()` and `bslib::page_sidebar()` that keeps the familiar `nav_panel()`, `nav_spacer()`, and `nav_select()` workflow.
 
