@@ -2,29 +2,72 @@ library(shiny)
 library(bslib)
 library(bscode)
 
-if (!requireNamespace("bsicons", quietly = TRUE) ||
-    !requireNamespace("fontawesome", quietly = TRUE)) {
-  stop("This example requires the bsicons and fontawesome packages.")
+required_packages <- c(
+  "bsicons",
+  "fontawesome",
+  "lucidr",
+  "phosphoricons"
+)
+missing_packages <- required_packages[
+  !vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)
+]
+
+if (length(missing_packages)) {
+  stop(
+    "This example requires: ",
+    paste(missing_packages, collapse = ", "),
+    "."
+  )
+}
+
+primary <- "#C2410C"
+secondary <- "#0F766E"
+
+icon_card <- function(title, package, icon, description) {
+  card(
+    class = "h-100",
+    card_header(title),
+    card_body(
+      div(class = "display-5 mb-3", icon),
+      tags$code(package),
+      p(class = "mt-3 mb-0 text-body-secondary", description)
+    )
+  )
 }
 
 ui <- page_bscode(
-  title = "Studio",
+  title = "Icon Studio",
   id = "main_nav",
   position = "right",
+  brand = phosphoricons::ph("code", weight = "bold", title = "Icon Studio"),
   theme = bs_theme(
-    primary = "#6F42C1",
-    secondary = "#20C997"
+    primary = primary,
+    secondary = secondary,
+    bg = "#FFFDF9",
+    fg = "#292524"
   ),
 
   nav_panel(
-    "Bootstrap icon",
+    "Bootstrap Icons",
     value = "bootstrap",
-    icon = bsicons::bs_icon("palette"),
+    icon = bsicons::bs_icon("palette2"),
     div(
-      class = "p-4",
-      h2("bsicons"),
-      p("Any HTML tag can be used as a navigation icon."),
-      value_box("Primary", "#6F42C1", showcase = bsicons::bs_icon("droplet-fill"), theme = "primary")
+      class = "p-4 h-100",
+      layout_columns(
+        col_widths = c(7, 5),
+        icon_card(
+          "Bootstrap Icons",
+          "bsicons::bs_icon()",
+          bsicons::bs_icon("palette2"),
+          "A compact SVG icon package designed to work naturally with bslib."
+        ),
+        value_box(
+          "Theme primary",
+          primary,
+          showcase = bsicons::bs_icon("droplet-fill"),
+          theme = "primary"
+        )
+      )
     )
   ),
 
@@ -34,8 +77,57 @@ ui <- page_bscode(
     icon = fontawesome::fa("wand-magic-sparkles"),
     div(
       class = "p-4",
-      h2("fontawesome"),
-      p("The activity bar is on the right, so automatic tooltips open to the left.")
+      icon_card(
+        "Font Awesome",
+        "fontawesome::fa()",
+        fontawesome::fa("wand-magic-sparkles"),
+        "Font Awesome SVG tags can be passed directly as navigation icons."
+      )
+    )
+  ),
+
+  nav_panel(
+    "Lucide",
+    value = "lucide",
+    icon = lucidr::lucide("blocks"),
+    div(
+      class = "p-4",
+      icon_card(
+        "Lucide",
+        "lucidr::lucide()",
+        lucidr::lucide("blocks", size = 46),
+        "Lucide provides lightweight line icons rendered as inline SVG."
+      )
+    )
+  ),
+
+  nav_panel(
+    "Phosphor",
+    value = "phosphor",
+    icon = phosphoricons::ph("circles-three-plus", weight = "bold"),
+    div(
+      class = "p-4",
+      icon_card(
+        "Phosphor",
+        "phosphoricons::ph()",
+        phosphoricons::ph("circles-three-plus", weight = "duotone", height = "3rem"),
+        "Phosphor offers several weights, including expressive duotone icons."
+      )
+    )
+  ),
+
+  nav_panel(
+    "Shiny icon",
+    value = "shiny",
+    icon = shiny::icon("gear"),
+    div(
+      class = "p-4",
+      icon_card(
+        "Shiny",
+        "shiny::icon()",
+        shiny::icon("gear"),
+        "Existing Shiny icons continue to work, so migration can be gradual."
+      )
     )
   ),
 
@@ -47,7 +139,14 @@ ui <- page_bscode(
     div(
       class = "p-4",
       h2("No icon supplied"),
-      p("bscode recommends icons, warns once per R session, and falls back to the first letter.")
+      p(
+        "bscode recommends an explicit icon, warns once per R session, ",
+        "and uses the first letter only as a fallback."
+      ),
+      p(
+        class = "text-body-secondary",
+        "The activity bar is on the right, so automatic tooltips open to the left."
+      )
     )
   )
 )
