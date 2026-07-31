@@ -41,11 +41,7 @@ articles:
   - title: Interactive examples
     desc: Edit the R code and run each bscode application directly in the browser with Shinylive.
     contents:
-      - matches("^basic-navigation$")
-      - matches("^flight-operations$")
-      - matches("^sql-console$")
-      - matches("^maps$")
-      - matches("^themes-and-icons$")
+      - starts_with("articles/")
 
 reference:
   - title: Page layout
