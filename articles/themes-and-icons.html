@@ -103,7 +103,7 @@
 </h2>
 <pre class="bscode-example-source"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jbkunst.github.io/bscode/">bscode</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jkunst.com/bscode/">bscode</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">required_packages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"bsicons"</span>,</span>
@@ -131,9 +131,9 @@
 <span>    class <span class="op">=</span> <span class="st">"h-100"</span>,</span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_body</a></span><span class="op">(</span></span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"display-5 mb-3"</span>, <span class="va">icon</span><span class="op">)</span>,</span>
+<span>      <span class="fu">div</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"display-5 mb-3"</span>, <span class="va">icon</span><span class="op">)</span>,</span>
 <span>      <span class="va">tags</span><span class="op">$</span><span class="fu">code</span><span class="op">(</span><span class="va">package</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"mt-3 mb-0 text-body-secondary"</span>, <span class="va">description</span><span class="op">)</span></span>
+<span>      <span class="fu">p</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"mt-3 mb-0 text-body-secondary"</span>, <span class="va">description</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -155,10 +155,10 @@
 <span>    <span class="st">"Bootstrap Icons"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"bootstrap"</span>,</span>
 <span>    icon <span class="op">=</span> <span class="fu">bsicons</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bsicons/man/bs_icon.html" class="external-link">bs_icon</a></span><span class="op">(</span><span class="st">"palette2"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4 h-100"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"bslib themes and icon libraries"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"bslib themes and icon libraries"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span></span>
 <span>        class <span class="op">=</span> <span class="st">"text-body-secondary"</span>,</span>
 <span>        <span class="st">"This example tests page_bscode() with a custom bslib theme and "</span>,</span>
 <span>        <span class="st">"navigation icons from bsicons, Font Awesome, Lucide, Phosphor, and Shiny."</span></span>
@@ -185,7 +185,7 @@
 <span>    <span class="st">"Font Awesome"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"fontawesome"</span>,</span>
 <span>    icon <span class="op">=</span> <span class="fu">fontawesome</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/fontawesome/reference/fa.html" class="external-link">fa</a></span><span class="op">(</span><span class="st">"wand-magic-sparkles"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
 <span>      <span class="fu">icon_card</span><span class="op">(</span></span>
 <span>        <span class="st">"Font Awesome"</span>,</span>
@@ -200,7 +200,7 @@
 <span>    <span class="st">"Lucide"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"lucide"</span>,</span>
 <span>    icon <span class="op">=</span> <span class="fu">lucidr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/lucidr/man/lucide.html" class="external-link">lucide</a></span><span class="op">(</span><span class="st">"blocks"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
 <span>      <span class="fu">icon_card</span><span class="op">(</span></span>
 <span>        <span class="st">"Lucide"</span>,</span>
@@ -215,7 +215,7 @@
 <span>    <span class="st">"Phosphor"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"phosphor"</span>,</span>
 <span>    icon <span class="op">=</span> <span class="fu">phosphoricons</span><span class="fu">::</span><span class="fu"><a href="https://dreamrs.github.io/phosphoricons/reference/ph.html" class="external-link">ph</a></span><span class="op">(</span><span class="st">"circles-three-plus"</span>, weight <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
 <span>      <span class="fu">icon_card</span><span class="op">(</span></span>
 <span>        <span class="st">"Phosphor"</span>,</span>
@@ -229,13 +229,13 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Shiny icon"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"shiny"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"gear"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu">icon</span><span class="op">(</span><span class="st">"gear"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
 <span>      <span class="fu">icon_card</span><span class="op">(</span></span>
 <span>        <span class="st">"Shiny"</span>,</span>
 <span>        <span class="st">"shiny::icon()"</span>,</span>
-<span>        <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"gear"</span><span class="op">)</span>,</span>
+<span>        <span class="fu">shiny</span><span class="fu">::</span><span class="fu">icon</span><span class="op">(</span><span class="st">"gear"</span><span class="op">)</span>,</span>
 <span>        <span class="st">"Existing Shiny icons continue to work, so migration can be gradual."</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
@@ -246,14 +246,14 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Fallback letter"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"fallback"</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"No icon supplied"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"No icon supplied"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span></span>
 <span>        <span class="st">"bscode recommends an explicit icon, warns once per R session, "</span>,</span>
 <span>        <span class="st">"and uses the first letter only as a fallback."</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span></span>
+<span>      <span class="fu">p</span><span class="op">(</span></span>
 <span>        class <span class="op">=</span> <span class="st">"text-body-secondary"</span>,</span>
 <span>        <span class="st">"The activity bar is on the right, so automatic light tooltips open to the left."</span></span>
 <span>      <span class="op">)</span></span>
@@ -263,7 +263,7 @@
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
 <p><a href="https://github.com/jbkunst/bscode/blob/main/inst/examples/05-themes-icons/app.R" class="external-link btn btn-outline-primary">View the original <code>app.R</code></a></p>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

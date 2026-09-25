@@ -104,7 +104,7 @@
 </h2>
 <pre class="bscode-example-source"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jbkunst.github.io/bscode/">bscode</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jkunst.com/bscode/">bscode</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"DBI"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">||</span></span>
 <span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"RSQLite"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">||</span></span>
@@ -132,7 +132,7 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Query"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"query"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"terminal"</span><span class="op">)</span>,</span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"terminal"</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/sidebar.html" class="external-link">layout_sidebar</a></span><span class="op">(</span></span>
 <span>      fillable <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>      border <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -141,14 +141,14 @@
 <span>        width <span class="op">=</span> <span class="fl">240</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">strong</span><span class="op">(</span><span class="st">"SQLite tables"</span><span class="op">)</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"cars"</span><span class="op">)</span>, <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"flowers"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">hr</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span>
+<span>        <span class="fu">hr</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        <span class="fu">actionButton</span><span class="op">(</span></span>
 <span>          <span class="st">"run"</span>,</span>
 <span>          <span class="st">"Run query"</span>,</span>
-<span>          icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"play"</span><span class="op">)</span>,</span>
+<span>          icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"play"</span><span class="op">)</span>,</span>
 <span>          class <span class="op">=</span> <span class="st">"btn-primary w-100"</span></span>
 <span>        <span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span></span>
+<span>        <span class="fu">p</span><span class="op">(</span></span>
 <span>          class <span class="op">=</span> <span class="st">"small text-body-secondary mt-2"</span>,</span>
 <span>          <span class="st">"Both Run buttons execute the current editor contents."</span></span>
 <span>        <span class="op">)</span></span>
@@ -160,13 +160,13 @@
 <span>        class <span class="op">=</span> <span class="st">"p-2"</span>,</span>
 <span>        <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
 <span>          <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span></span>
-<span>            <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="fu">div</span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"d-flex align-items-center justify-content-between w-100"</span>,</span>
-<span>              <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">span</a></span><span class="op">(</span><span class="st">"query.sql"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span>
+<span>              <span class="fu">span</span><span class="op">(</span><span class="st">"query.sql"</span><span class="op">)</span>,</span>
+<span>              <span class="fu">actionButton</span><span class="op">(</span></span>
 <span>                <span class="st">"run_editor"</span>,</span>
 <span>                <span class="cn">NULL</span>,</span>
-<span>                icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"play"</span><span class="op">)</span>,</span>
+<span>                icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"play"</span><span class="op">)</span>,</span>
 <span>                class <span class="op">=</span> <span class="st">"btn-primary btn-sm"</span>,</span>
 <span>                title <span class="op">=</span> <span class="st">"Run query"</span></span>
 <span>              <span class="op">)</span></span>
@@ -183,11 +183,11 @@
 <span>          <span class="op">)</span></span>
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
-<span>          <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">textOutput</a></span><span class="op">(</span><span class="st">"console_title"</span>, inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="fu">textOutput</span><span class="op">(</span><span class="st">"console_title"</span>, inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>          <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_body</a></span><span class="op">(</span></span>
-<span>            <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="fu">div</span><span class="op">(</span></span>
 <span>              class <span class="op">=</span> <span class="st">"h-100 overflow-auto"</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"result"</span>, placeholder <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>              <span class="fu">verbatimTextOutput</span><span class="op">(</span><span class="st">"result"</span>, placeholder <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>            <span class="op">)</span>,</span>
 <span>            fillable <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>          <span class="op">)</span></span>
@@ -201,10 +201,10 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Help"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"help"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"circle-question"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"circle-question"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Try these queries"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"Try these queries"</span><span class="op">)</span>,</span>
 <span>      <span class="va">tags</span><span class="op">$</span><span class="fu">pre</span><span class="op">(</span><span class="st">"SELECT * FROM flowers LIMIT 10;"</span><span class="op">)</span>,</span>
 <span>      <span class="va">tags</span><span class="op">$</span><span class="fu">pre</span><span class="op">(</span><span class="st">"SELECT cyl, AVG(mpg) AS avg_mpg FROM cars GROUP BY cyl;"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
@@ -216,8 +216,8 @@
 <span>  <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbWriteTable.html" class="external-link">dbWriteTable</a></span><span class="op">(</span><span class="va">con</span>, <span class="st">"cars"</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>, <span class="va">mtcars</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbWriteTable.html" class="external-link">dbWriteTable</a></span><span class="op">(</span><span class="va">con</span>, <span class="st">"flowers"</span>, <span class="va">iris</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, <span class="va">sql_default</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="va">status</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="st">"Ready"</span><span class="op">)</span></span>
+<span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">reactiveVal</span><span class="op">(</span><span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, <span class="va">sql_default</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">status</span> <span class="op">&lt;-</span> <span class="fu">reactiveVal</span><span class="op">(</span><span class="st">"Ready"</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">run_query</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">query</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">sql</span><span class="op">)</span></span>
@@ -238,21 +238,21 @@
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">run</span>, <span class="fu">run_query</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">run_editor</span>, <span class="fu">run_query</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">run</span>, <span class="fu">run_query</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">run_editor</span>, <span class="fu">run_query</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">renderPrint</span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">result</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">console_title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderText</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Results ·"</span>, <span class="fu">status</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">console_title</span> <span class="op">&lt;-</span> <span class="fu">renderText</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Results ·"</span>, <span class="fu">status</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">session</span><span class="op">$</span><span class="fu">onSessionEnded</span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbDisconnect.html" class="external-link">dbDisconnect</a></span><span class="op">(</span><span class="va">con</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
 <p><a href="https://github.com/jbkunst/bscode/blob/main/inst/examples/03-sql-console/app.R" class="external-link btn btn-outline-primary">View the original <code>app.R</code></a></p>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

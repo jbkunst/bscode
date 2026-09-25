@@ -105,37 +105,37 @@
 </h2>
 <pre class="bscode-example-source"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jbkunst.github.io/bscode/">bscode</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jkunst.com/bscode/">bscode</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/page_bscode.html">page_bscode</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"Basic app"</span>,</span>
 <span>  id <span class="op">=</span> <span class="st">"main_nav"</span>,</span>
-<span>  header <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>  header <span class="op">=</span> <span class="fu">div</span><span class="op">(</span></span>
 <span>    class <span class="op">=</span> <span class="st">"d-flex align-items-center gap-2 px-4 py-3 border-bottom bg-body"</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">strong</a></span><span class="op">(</span><span class="st">"Basic app"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">span</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"text-body-secondary"</span>, <span class="st">"Persistent across panels"</span><span class="op">)</span></span>
+<span>    <span class="fu">strong</span><span class="op">(</span><span class="st">"Basic app"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">span</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"text-body-secondary"</span>, <span class="st">"Persistent across panels"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Home"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"home"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"house"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"house"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"A familiar bslib workflow"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"The page changes, but nav_panel(), nav_spacer(), and nav_select() remain familiar."</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"go_data"</span>, <span class="st">"Open data"</span>, class <span class="op">=</span> <span class="st">"btn-primary"</span><span class="op">)</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"A familiar bslib workflow"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span><span class="st">"The page changes, but nav_panel(), nav_spacer(), and nav_select() remain familiar."</span><span class="op">)</span>,</span>
+<span>      <span class="fu">actionButton</span><span class="op">(</span><span class="st">"go_data"</span>, <span class="st">"Open data"</span>, class <span class="op">=</span> <span class="st">"btn-primary"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Data"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"data"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"table"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"table"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span><span class="st">"rows"</span>, <span class="st">"Rows"</span>, min <span class="op">=</span> <span class="fl">3</span>, max <span class="op">=</span> <span class="fl">12</span>, value <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">tableOutput</a></span><span class="op">(</span><span class="st">"iris_table"</span><span class="op">)</span></span>
+<span>      <span class="fu">sliderInput</span><span class="op">(</span><span class="st">"rows"</span>, <span class="st">"Rows"</span>, min <span class="op">=</span> <span class="fl">3</span>, max <span class="op">=</span> <span class="fl">12</span>, value <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>,</span>
+<span>      <span class="fu">tableOutput</span><span class="op">(</span><span class="st">"iris_table"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span></span>
@@ -144,22 +144,22 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"About"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"about"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"circle-info"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"p-4"</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"One page function; standard bslib navigation items."</span><span class="op">)</span><span class="op">)</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"circle-info"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"p-4"</span>, <span class="fu">h2</span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span>, <span class="fu">p</span><span class="op">(</span><span class="st">"One page function; standard bslib navigation items."</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">go_data</span>, <span class="op">{</span></span>
+<span>  <span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">go_data</span>, <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav_select.html" class="external-link">nav_select</a></span><span class="op">(</span><span class="st">"main_nav"</span>, <span class="st">"data"</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">iris_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">renderTable</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">iris_table</span> <span class="op">&lt;-</span> <span class="fu">renderTable</span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">iris</span>, <span class="va">input</span><span class="op">$</span><span class="va">rows</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
 <p><a href="https://github.com/jbkunst/bscode/blob/main/inst/examples/01-basic/app.R" class="external-link btn btn-outline-primary">View the original <code>app.R</code></a></p>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

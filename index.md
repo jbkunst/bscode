@@ -12,6 +12,22 @@ and
 that keeps the familiar `nav_panel()`, `nav_spacer()`, and
 `nav_select()` workflow.
 
+## Try it live
+
+The basic example below shows the core idea: a VS Code-style activity
+bar around ordinary `bslib` navigation. Switch panels, use the button to
+navigate programmatically, and change the table size — the whole app
+runs in the browser with Shinylive and webR.
+
+## Install
+
+``` r
+
+pak::pak("jbkunst/bscode")
+```
+
+## Basic use
+
 ``` r
 
 bscode::page_bscode(

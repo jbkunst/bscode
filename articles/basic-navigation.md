@@ -14,7 +14,7 @@ This example checks:
 > The first load may take a moment. The application runs entirely in the
 > browser through WebAssembly.
 
-[Open live app](https://jbkunst.github.io/bscode/live/01-basic/)
+[Open live app](https://jkunst.com/bscode/live/01-basic/)
 
 ## Source code
 

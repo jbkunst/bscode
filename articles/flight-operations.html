@@ -103,7 +103,7 @@
 </h2>
 <pre class="bscode-example-source"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jbkunst.github.io/bscode/">bscode</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jkunst.com/bscode/">bscode</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com" class="external-link">plotly</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">required_packages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"leaflet"</span>, <span class="st">"reactable"</span><span class="op">)</span></span>
@@ -161,7 +161,7 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Dashboard"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"dashboard"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"plane-departure"</span><span class="op">)</span>,</span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"plane-departure"</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/layout_columns.html" class="external-link">layout_columns</a></span><span class="op">(</span></span>
 <span>      col_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">5</span><span class="op">)</span>,</span>
 <span>      row_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"115px"</span>, <span class="st">"minmax(260px, 1fr)"</span>, <span class="st">"minmax(260px, 1fr)"</span><span class="op">)</span>,</span>
@@ -171,18 +171,18 @@
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/value_box.html" class="external-link">value_box</a></span><span class="op">(</span></span>
 <span>        <span class="st">"Flights today"</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">airports</span><span class="op">$</span><span class="va">flights</span><span class="op">)</span>,</span>
-<span>        showcase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"plane"</span><span class="op">)</span>,</span>
+<span>        showcase <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"plane"</span><span class="op">)</span>,</span>
 <span>        theme <span class="op">=</span> <span class="st">"primary"</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/value_box.html" class="external-link">value_box</a></span><span class="op">(</span></span>
 <span>        <span class="st">"Destinations"</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">routes</span><span class="op">)</span>,</span>
-<span>        showcase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"location-dot"</span><span class="op">)</span></span>
+<span>        showcase <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"location-dot"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/value_box.html" class="external-link">value_box</a></span><span class="op">(</span></span>
 <span>        <span class="st">"On-time rate"</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html" class="external-link">weighted.mean</a></span><span class="op">(</span><span class="va">airports</span><span class="op">$</span><span class="va">on_time</span>, <span class="va">airports</span><span class="op">$</span><span class="va">flights</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span>, <span class="st">"%"</span><span class="op">)</span>,</span>
-<span>        showcase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"clock"</span><span class="op">)</span></span>
+<span>        showcase <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"clock"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span></span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
@@ -203,7 +203,7 @@
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
 <span>        full_screen <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>        <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="st">"On-time performance"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"punctuality"</span>, height <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></span>
+<span>        <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"punctuality"</span>, height <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
@@ -213,11 +213,11 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Notes"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"notes"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"circle-info"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"circle-info"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"A dashboard made from ordinary components"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"A dashboard made from ordinary components"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span></span>
 <span>        <span class="st">"The activity bar only provides page navigation. Cards, layouts, "</span>,</span>
 <span>        <span class="st">"themes and htmlwidgets remain standard bslib and Shiny components."</span></span>
 <span>      <span class="op">)</span>,</span>
@@ -232,7 +232,7 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">plotly_ready</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  <span class="va">plotly_ready</span> <span class="op">&lt;-</span> <span class="fu">reactiveVal</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">session</span><span class="op">$</span><span class="fu">onFlushed</span><span class="op">(</span></span>
 <span>    <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu">plotly_ready</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>,</span>
@@ -240,7 +240,7 @@
 <span>  <span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">globe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plotly-shiny.html" class="external-link">renderPlotly</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html" class="external-link">req</a></span><span class="op">(</span><span class="fu">plotly_ready</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="fu">req</span><span class="op">(</span><span class="fu">plotly_ready</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_geo.html" class="external-link">plot_geo</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/add_trace.html" class="external-link">add_lines</a></span><span class="op">(</span></span>
@@ -332,7 +332,7 @@
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">punctuality</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">punctuality</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span></span>
 <span>      height <span class="op">=</span> <span class="va">routes</span><span class="op">$</span><span class="va">on_time</span> <span class="op">*</span> <span class="fl">100</span>,</span>
 <span>      names.arg <span class="op">=</span> <span class="va">routes</span><span class="op">$</span><span class="va">code</span>,</span>
@@ -348,7 +348,7 @@
 <span>  <span class="op">}</span>, res <span class="op">=</span> <span class="fl">96</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
 <p><a href="https://github.com/jbkunst/bscode/blob/main/inst/examples/02-cards/app.R" class="external-link btn btn-outline-primary">View the original <code>app.R</code></a></p>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

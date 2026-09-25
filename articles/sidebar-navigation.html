@@ -106,7 +106,7 @@
 </h2>
 <pre class="bscode-example-source"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jbkunst.github.io/bscode/">bscode</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jkunst.com/bscode/">bscode</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span></span>
@@ -119,15 +119,15 @@
 <span>  id <span class="op">=</span> <span class="st">"main_nav"</span>,</span>
 <span>  nav_mode <span class="op">=</span> <span class="st">"sidebar"</span>,</span>
 <span>  nav_width <span class="op">=</span> <span class="st">"230px"</span>,</span>
-<span>  brand <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"chart-column"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">span</a></span><span class="op">(</span><span class="st">"My Dashboard"</span><span class="op">)</span></span>
+<span>  brand <span class="op">=</span> <span class="fu">tagList</span><span class="op">(</span></span>
+<span>    <span class="fu">icon</span><span class="op">(</span><span class="st">"chart-column"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">span</span><span class="op">(</span><span class="st">"My Dashboard"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Dashboard"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"dashboard"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"gauge-high"</span><span class="op">)</span>,</span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"gauge-high"</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/layout_columns.html" class="external-link">layout_columns</a></span><span class="op">(</span></span>
 <span>      col_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span>,</span>
 <span>      row_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"120px"</span>, <span class="st">"minmax(300px, 1fr)"</span><span class="op">)</span>,</span>
@@ -137,29 +137,29 @@
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/value_box.html" class="external-link">value_box</a></span><span class="op">(</span></span>
 <span>        <span class="st">"Observations"</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">distribution</span><span class="op">)</span>,</span>
-<span>        showcase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"database"</span><span class="op">)</span>,</span>
+<span>        showcase <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"database"</span><span class="op">)</span>,</span>
 <span>        theme <span class="op">=</span> <span class="st">"primary"</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/value_box.html" class="external-link">value_box</a></span><span class="op">(</span></span>
 <span>        <span class="st">"Mean"</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">distribution</span><span class="op">$</span><span class="va">value</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span>        showcase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span></span>
+<span>        showcase <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/value_box.html" class="external-link">value_box</a></span><span class="op">(</span></span>
 <span>        <span class="st">"Correlation"</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">scatter</span><span class="op">$</span><span class="va">x</span>, <span class="va">scatter</span><span class="op">$</span><span class="va">y</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span>        showcase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"arrow-trend-up"</span><span class="op">)</span></span>
+<span>        showcase <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"arrow-trend-up"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span></span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
 <span>        full_screen <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>        <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="st">"Distribution"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"distribution"</span>, height <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></span>
+<span>        <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"distribution"</span>, height <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
 <span>        full_screen <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>        <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="st">"Scatterplot"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"scatter"</span>, height <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></span>
+<span>        <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"scatter"</span>, height <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
@@ -167,25 +167,25 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Widgets"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"widgets"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"sliders"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Widgets"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"The sidebar changes only navigation. Inputs and content remain ordinary Shiny components."</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html" class="external-link">sliderInput</a></span><span class="op">(</span><span class="st">"bins"</span>, <span class="st">"Histogram bins"</span>, min <span class="op">=</span> <span class="fl">5</span>, max <span class="op">=</span> <span class="fl">60</span>, value <span class="op">=</span> <span class="fl">25</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxInput.html" class="external-link">checkboxInput</a></span><span class="op">(</span><span class="st">"grid"</span>, <span class="st">"Show plot grid"</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"Widgets"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span><span class="st">"The sidebar changes only navigation. Inputs and content remain ordinary Shiny components."</span><span class="op">)</span>,</span>
+<span>      <span class="fu">sliderInput</span><span class="op">(</span><span class="st">"bins"</span>, <span class="st">"Histogram bins"</span>, min <span class="op">=</span> <span class="fl">5</span>, max <span class="op">=</span> <span class="fl">60</span>, value <span class="op">=</span> <span class="fl">25</span><span class="op">)</span>,</span>
+<span>      <span class="fu">checkboxInput</span><span class="op">(</span><span class="st">"grid"</span>, <span class="st">"Show plot grid"</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Charts"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"charts"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"chart-line"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"chart-line"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Charts"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"A wider navigation mode is useful when section names matter as much as their icons."</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput</a></span><span class="op">(</span><span class="st">"trend"</span>, height <span class="op">=</span> <span class="fl">360</span><span class="op">)</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"Charts"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span><span class="st">"A wider navigation mode is useful when section names matter as much as their icons."</span><span class="op">)</span>,</span>
+<span>      <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"trend"</span>, height <span class="op">=</span> <span class="fl">360</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span></span>
@@ -194,19 +194,19 @@
 <span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav-items.html" class="external-link">nav_panel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"About"</span>,</span>
 <span>    value <span class="op">=</span> <span class="st">"about"</span>,</span>
-<span>    icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"circle-info"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"circle-info"</span><span class="op">)</span>,</span>
+<span>    <span class="fu">div</span><span class="op">(</span></span>
 <span>      class <span class="op">=</span> <span class="st">"p-4"</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Sidebar navigation"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"This example uses the same nav_panel(), nav_spacer(), and nav_select() workflow as activity mode."</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"open_dashboard"</span>, <span class="st">"Back to dashboard"</span>, icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"arrow-left"</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="fu">h2</span><span class="op">(</span><span class="st">"Sidebar navigation"</span><span class="op">)</span>,</span>
+<span>      <span class="fu">p</span><span class="op">(</span><span class="st">"This example uses the same nav_panel(), nav_spacer(), and nav_select() workflow as activity mode."</span><span class="op">)</span>,</span>
+<span>      <span class="fu">actionButton</span><span class="op">(</span><span class="st">"open_dashboard"</span>, <span class="st">"Back to dashboard"</span>, icon <span class="op">=</span> <span class="fu">icon</span><span class="op">(</span><span class="st">"arrow-left"</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">distribution</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html" class="external-link">req</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">bins</span><span class="op">)</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">distribution</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu">req</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">bins</span><span class="op">)</span></span>
 <span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span></span>
 <span>      <span class="va">distribution</span><span class="op">$</span><span class="va">value</span>,</span>
@@ -222,7 +222,7 @@
 <span>    <span class="op">}</span></span>
 <span>  <span class="op">}</span>, res <span class="op">=</span> <span class="fl">96</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">scatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">scatter</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
 <span>      <span class="va">scatter</span><span class="op">$</span><span class="va">x</span>,</span>
 <span>      <span class="va">scatter</span><span class="op">$</span><span class="va">y</span>,</span>
@@ -234,7 +234,7 @@
 <span>    <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">scatter</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"#C2410C"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span>  <span class="op">}</span>, res <span class="op">=</span> <span class="fl">96</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">trend</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html" class="external-link">renderPlot</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">trend</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
 <span>      <span class="va">values</span>,</span>
@@ -246,12 +246,12 @@
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span>, res <span class="op">=</span> <span class="fl">96</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">open_dashboard</span>, <span class="op">{</span></span>
+<span>  <span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">open_dashboard</span>, <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rstudio.github.io/bslib/reference/nav_select.html" class="external-link">nav_select</a></span><span class="op">(</span><span class="st">"main_nav"</span>, <span class="st">"dashboard"</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
 <p><a href="https://github.com/jbkunst/bscode/blob/main/inst/examples/06-sidebar/app.R" class="external-link btn btn-outline-primary">View the original <code>app.R</code></a></p>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
