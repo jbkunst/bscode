@@ -6,6 +6,30 @@
 
 `bscode` provides an opinionated, screen-filling page layout for Shiny. It is a compact alternative to `bslib::page_navbar()` and `bslib::page_sidebar()` that keeps the familiar `nav_panel()`, `nav_spacer()`, and `nav_select()` workflow.
 
+
+## Try it live
+
+The basic example below shows the core idea: a VS Code-style activity bar around
+ordinary `bslib` navigation. Switch panels, use the button to navigate
+programmatically, and change the table size — the whole app runs in the browser
+with Shinylive and webR.
+
+<iframe
+  class="bscode-live-frame"
+  src="https://jkunst.com/bscode/live/01-basic/"
+  title="bscode basic Shinylive example"
+  loading="eager"
+  style="height: 560px;"
+></iframe>
+
+## Install
+
+```r
+pak::pak("jbkunst/bscode")
+```
+
+## Basic use
+
 ```r
 bscode::page_bscode(
   title = "My app",

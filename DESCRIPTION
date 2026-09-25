@@ -12,7 +12,7 @@ Description: Provides an opinionated, screen-filling page layout for Shiny
     left or right.
 License: MIT + file LICENSE
 Encoding: UTF-8
-URL: https://jbkunst.github.io/bscode/, https://github.com/jbkunst/bscode
+URL: https://jkunst.com/bscode/, https://github.com/jbkunst/bscode
 BugReports: https://github.com/jbkunst/bscode/issues
 Imports:
     bslib (>= 0.11.0),
