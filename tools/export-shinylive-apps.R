@@ -1,6 +1,9 @@
 source(file.path("tools", "example-metadata.R"))
 
 live_dir <- file.path("docs", "live")
+basic_live_dir <- file.path(live_dir, "basic")
+examples_live_dir <- file.path(live_dir, "examples")
+
 unlink(live_dir, recursive = TRUE, force = TRUE)
 dir.create(live_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -69,15 +72,31 @@ for (example in examples) {
     stop("Could not copy bscode web assets for Shinylive.", call. = FALSE)
   }
 
+  if (identical(example$slug, "01-basic")) {
+    # Keep the homepage demo isolated from heavier example dependencies.
+    destdir <- basic_live_dir
+    subdir <- ""
+  } else {
+    # The remaining examples share Shinylive and WebAssembly assets.
+    destdir <- examples_live_dir
+    subdir <- example$slug
+  }
+
   shinylive::export(
     appdir = build_dir,
-    destdir = live_dir,
-    subdir = example$slug,
+    destdir = destdir,
+    subdir = subdir,
     wasm_packages = TRUE,
     quiet = FALSE,
     template_params = list(title = paste(example$title, "· bscode"))
   )
 
   unlink(build_dir, recursive = TRUE, force = TRUE)
-  message("Exported ", file.path(live_dir, example$slug))
+
+  exported_path <- if (nzchar(subdir)) {
+    file.path(destdir, subdir)
+  } else {
+    destdir
+  }
+  message("Exported ", exported_path)
 }

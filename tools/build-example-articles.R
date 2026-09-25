@@ -24,7 +24,11 @@ for (example in examples) {
   app_code <- readLines(app_path, warn = FALSE, encoding = "UTF-8")
   escaped_code <- paste(html_escape(app_code), collapse = "\n")
   article_path <- file.path(article_dir, paste0(example$article, ".qmd"))
-  live_url <- paste0("../live/", example$slug, "/")
+  live_url <- if (identical(example$slug, "01-basic")) {
+    "../live/basic/"
+  } else {
+    paste0("../live/examples/", example$slug, "/")
+  }
 
   article <- c(
     "---",

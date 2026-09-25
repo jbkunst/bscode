@@ -16,7 +16,7 @@ with Shinylive and webR.
 
 <iframe
   class="bscode-live-frame"
-  src="https://jkunst.com/bscode/live/01-basic/"
+  src="https://jkunst.com/bscode/live/basic/"
   title="bscode basic Shinylive example"
   loading="eager"
   style="height: 560px;"
