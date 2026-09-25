@@ -16,7 +16,7 @@ This example checks:
 > The first load may take a moment. The application runs entirely in the
 > browser through WebAssembly.
 
-[Open live app](https://jkunst.com/bscode/live/03-sql-console/)
+[Open live app](https://jkunst.com/bscode/live/examples/03-sql-console/)
 
 ## Source code
 
