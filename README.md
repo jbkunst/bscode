@@ -8,7 +8,7 @@
 
 ## Motivation
 
-`bscode` started as an alternative way to organize `bslib` applications: more minimal, visually distinct, and especially useful when vertical space should stay available for the content itself. The goal is not to replace the standard `bslib` layouts, but to offer one more layout option while keeping the same familiar navigation primitives.
+`bscode` provides a more minimal alternative to standard `bslib` layouts, leaving more screen space for the application itself. It keeps the familiar `bslib` navigation API while offering a different, VS Code-inspired shell.
 
 
 ## Try it live
