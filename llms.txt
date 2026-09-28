@@ -12,6 +12,14 @@ and
 that keeps the familiar `nav_panel()`, `nav_spacer()`, and
 `nav_select()` workflow.
 
+## Motivation
+
+`bscode` started as an alternative way to organize `bslib` applications:
+more minimal, visually distinct, and especially useful when vertical
+space should stay available for the content itself. The goal is not to
+replace the standard `bslib` layouts, but to offer one more layout
+option while keeping the same familiar navigation primitives.
+
 ## Try it live
 
 The basic example below shows the core idea: a VS Code-style activity
